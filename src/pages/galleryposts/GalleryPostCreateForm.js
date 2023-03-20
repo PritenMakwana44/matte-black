@@ -14,10 +14,10 @@ import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import { Image } from "react-bootstrap";
 
-function PostCreateForm() {
+function GalleryPostCreateForm() {
   const [errors, setErrors] = useState({});
 
-  const [postData, setPostData] = useState({
+  const [GallerypostData, setGalleryPostData] = useState({
     title: "",
     content: "",
     image: "",
@@ -25,8 +25,8 @@ function PostCreateForm() {
   const { title, content, image } = postData;
 
   const handleChange = (event) => {
-    setPostData({
-      ...postData,
+    setGalleryPostData({
+      ...GallerypostData,
       [event.target.name]: event.target.value,
     });
   };
@@ -34,7 +34,7 @@ function PostCreateForm() {
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
-      setPostData({
+      setGalleryPostData({
         ...postData,
         image: URL.createObjectURL(event.target.files[0]),
       });
@@ -126,4 +126,4 @@ function PostCreateForm() {
   );
 }
 
-export default PostCreateForm;
+export default GalleryPostCreateForm;
