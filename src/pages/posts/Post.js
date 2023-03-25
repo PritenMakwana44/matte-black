@@ -4,6 +4,8 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import { axiosRes } from "../../api/axiosDefaults";
+
 
 const Post = (props) => {
   const {
@@ -11,6 +13,8 @@ const Post = (props) => {
     owner,
     profile_id,
     profile_image,
+    saves_count,
+    save_id,
     title,
     description,
     type,
@@ -18,10 +22,42 @@ const Post = (props) => {
     image,
     updated_at,
     postPage,
+    setPosts,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+
+  const handleSave = async () => {	
+    try {	
+      const { data } = await axiosRes.post("/saves/", { post: id });	
+      setPosts((prevPosts) => ({	
+        ...prevPosts,	
+        results: prevPosts.results.map((post) => {	
+          return post.id === id	
+            ? { ...post, saves_count: post.saves_count + 1, save_id: data.id }	
+            : post;	
+        }),	
+      }));	
+    } catch (err) {	
+      console.log(err);	
+    }	
+  };	
+  const handleUnsave = async () => {	
+    try {	
+      await axiosRes.delete(`/saves/${save_id}/`);	
+      setPosts((prevPosts) => ({	
+        ...prevPosts,	
+        results: prevPosts.results.map((post) => {	
+          return post.id === id	
+            ? { ...post, saves_count: post.saves_count - 1, save_id: null }	
+            : post;	
+        }),	
+      }));	
+    } catch (err) {	
+      console.log(err);	
+    }	
+  };
 
   return (
     <Card className={styles.Post}>
@@ -46,6 +82,30 @@ const Post = (props) => {
         {type && <Card.Text>{type}</Card.Text>}
         {year && <Card.Text>{year}</Card.Text>}
         <div className={styles.PostBar}>
+        {is_owner ? (	
+            <OverlayTrigger	
+              placement="top"	
+              overlay={<Tooltip>You can't save your own post!</Tooltip>}	
+            >	
+              <i className="far fa-heart" />	
+            </OverlayTrigger>	
+          ) : save_id ? (	
+            <span onClick={handleUnsave}>	
+              <i className={`fas fa-heart ${styles.Heart}`} />	
+            </span>	
+          ) : currentUser ? (	
+            <span onClick={handleSave}>	
+              <i className={`far fa-heart ${styles.HeartOutline}`} />	
+            </span>	
+          ) : (	
+            <OverlayTrigger	
+              placement="top"	
+              overlay={<Tooltip>Log in to save posts!</Tooltip>}	
+            >	
+              <i className="far fa-heart" />	
+            </OverlayTrigger>	
+          )}	
+          {saves_count}
         </div>
       </Card.Body>
     </Card>
