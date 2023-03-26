@@ -18,18 +18,18 @@ import btnStyles from "../../styles/Button.module.css";
 
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function PostCreateForm() {
+  useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
     title: "",
-    type: "",
-    description: "",
-    year: "",
+    content: "",
     image: "",
   });
-  const { title, type, description, year, image } = postData;
+  const { title, content, image } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -56,16 +56,14 @@ function PostCreateForm() {
     const formData = new FormData();
 
     formData.append("title", title);
-    formData.append("description", description);
-    formData.append("type", type);
-    formData.append("year", year);
+    formData.append("content", content);
     formData.append("image", imageInput.current.files[0]);
 
     try {
       const { data } = await axiosReq.post("/posts/", formData);
       history.push(`/posts/${data.id}`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -90,44 +88,16 @@ function PostCreateForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>description</Form.Label>
+        <Form.Label>Content</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
-          name="description"
-          value={description}
+          name="content"
+          value={content}
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.description?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-       <Form.Group>
-        <Form.Label>Type</Form.Label>
-        <Form.Control
-          type="text"
-          name="type"
-          value={type}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.type?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-       <Form.Group>
-        <Form.Label>Year</Form.Label>
-        <Form.Control
-          type="int"
-          name="year"
-          value={year}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.year?.map((message, idx) => (
+      {errors?.content?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>

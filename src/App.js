@@ -38,11 +38,11 @@ function App() {
           />
           <Route
             exact
-            path="/liked"
+            path="/Saved"
             render={() => (
               <PostsPage
-                message="No results found. Adjust the search keyword or like a post."
-                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+                message="No results found. Adjust the search keyword or save a post."
+                filter={`saves__owner__profile=${profile_id}&ordering=-saves__created_at&`}
               />
             )}
           />
