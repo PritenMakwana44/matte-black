@@ -18,7 +18,7 @@ const Post = (props) => {
     owner,
     profile_id,
     profile_image,
-    saves_count,
+    comments_count,
     save_count,
     save_id,
     title,
@@ -132,10 +132,13 @@ const Post = (props) => {
           )}
           {save_count}
          
-        </div>
-      </Card.Body>
-    </Card>
-  );
-};
-
+          <Link to={`/posts/${id}`}>	
+            <i className="far fa-comments" />	
+          </Link>	
+          {comments_count}	
+        </div>	
+      </Card.Body>	
+    </Card>	
+  );	
+};	
 export default Post;
