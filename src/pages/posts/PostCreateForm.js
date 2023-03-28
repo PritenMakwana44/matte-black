@@ -26,10 +26,12 @@ function PostCreateForm() {
 
   const [postData, setPostData] = useState({
     title: "",
-    content: "",
+    description: "",
+    type: "",
+    year: "",
     image: "",
   });
-  const { title, content, image } = postData;
+  const { title, description, type, year, image } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -56,7 +58,9 @@ function PostCreateForm() {
     const formData = new FormData();
 
     formData.append("title", title);
-    formData.append("content", content);
+    formData.append("description", description);
+    formData.append("type", type);
+    formData.append("year", year);
     formData.append("image", imageInput.current.files[0]);
 
     try {
@@ -88,16 +92,48 @@ function PostCreateForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Content</Form.Label>
+        <Form.Label>Description</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
-          name="content"
-          value={content}
+          name="description"
+          value={description}
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.content?.map((message, idx) => (
+      {errors?.description?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+<Form.Group>
+        <Form.Label>Year</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={6}
+          name="year"
+          value={year}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.year?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+<Form.Group>
+        <Form.Label>Type</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={6}
+          name="type"
+          value={type}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.type?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
@@ -166,7 +202,7 @@ function PostCreateForm() {
           </Container>
         </Col>
         <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>{textFields}</Container>
+          <Container className={appStyles.Description}>{textFields}</Container>
         </Col>
       </Row>
     </Form>

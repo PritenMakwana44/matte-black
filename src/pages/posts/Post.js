@@ -19,7 +19,7 @@ const Post = (props) => {
     profile_id,
     profile_image,
     comments_count,
-    save_count,
+    saves_count,
     save_id,
     title,
     description,
@@ -50,11 +50,10 @@ const Post = (props) => {
 
   const handleSave = async () => {
     try {
-      const { data } = await axiosRes.post("/saves/", { posts: id });
+      const { data } = await axiosRes.post("/saves/", { post: id });
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
-          console.log(post.id === id ? post : null)
           return post.id === id
             ? { ...post, saves_count: post.saves_count + 1, save_id: data.id }
             : post;
@@ -132,15 +131,15 @@ const Post = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           )}
-          {save_count}
-         
-          <Link to={`/posts/${id}`}>	
-            <i className="far fa-comments" />	
-          </Link>	
-          {comments_count}	
-        </div>	
-      </Card.Body>	
-    </Card>	
-  );	
-};	
+          {saves_count}
+          <Link to={`/posts/${id}`}>
+            <i className="far fa-comments" />
+          </Link>
+          {comments_count}
+        </div>
+      </Card.Body>
+    </Card>
+  );
+};
+
 export default Post;

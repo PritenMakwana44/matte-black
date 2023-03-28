@@ -20,10 +20,12 @@ function PostEditForm() {
 
   const [postData, setPostData] = useState({
     title: "",
-    content: "",
+    description: "",
+    type: "",
+    year: "",
     image: "",
   });
-  const { title, content, image } = postData;
+  const { title, description, type, year, image } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -35,7 +37,7 @@ function PostEditForm() {
         const { data } = await axiosReq.get(`/posts/${id}/`);
         const { title, content, image, is_owner } = data;
 
-        is_owner ? setPostData({ title, content, image }) : history.push("/");
+        is_owner ? setPostData({ title, description, type, year, image }) : history.push("/");
       } catch (err) {
         // console.log(err);
       }
@@ -66,7 +68,9 @@ function PostEditForm() {
     const formData = new FormData();
 
     formData.append("title", title);
-    formData.append("content", content);
+    formData.append("description", description);
+    formData.append("type", type);
+    formData.append("year", year);
 
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
@@ -101,16 +105,48 @@ function PostEditForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Content</Form.Label>
+        <Form.Label>Description</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
-          name="content"
-          value={content}
+          name="description"
+          value={description}
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.content?.map((message, idx) => (
+      {errors?.description?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+<Form.Group>
+        <Form.Label>Type</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={6}
+          name="type"
+          value={type}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.type?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+<Form.Group>
+        <Form.Label>Year</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={6}
+          name="year"
+          value={year}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.year?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
@@ -133,7 +169,7 @@ function PostEditForm() {
       <Row>
         <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
           <Container
-            className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
+            className={`${appStyles.Description} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
               <figure>

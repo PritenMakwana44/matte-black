@@ -1,66 +1,81 @@
-import jwtDecode from "jwt-decode";
-import { axiosReq } from "../api/axiosDefaults";
+import React, { useState } from "react";
+import Media from "react-bootstrap/Media";
+import { Link } from "react-router-dom";
+import Avatar from "../../components/Avatar";
+import { MoreDropdown } from "../../components/MoreDropdown";
+import CommentEditForm from "./CommentEditForm";
 
-export const fetchMoreData = async (resource, setResource) => {
-  try {
-    const { data } = await axiosReq.get(resource.next);
-    setResource((prevResource) => ({
-      ...prevResource,
-      next: data.next,
-      results: data.results.reduce((acc, cur) => {
-        return acc.some((accResult) => accResult.id === cur.id)
-          ? acc
-          : [...acc, cur];
-      }, prevResource.results),
-    }));
-  } catch (err) {}
+import styles from "../../styles/Comment.module.css";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { axiosRes } from "../../api/axiosDefaults";
+
+const Comment = (props) => {
+  const {
+    profile_id,
+    profile_image,
+    owner,
+    updated_at,
+    content,
+    id,
+    setPost,
+    setComments,
+  } = props;
+
+  const [showEditForm, setShowEditForm] = useState(false);
+  const currentUser = useCurrentUser();
+  const is_owner = currentUser?.username === owner;
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/comments/${id}/`);
+      setPost((prevPost) => ({
+        results: [
+          {
+            ...prevPost.results[0],
+            comments_count: prevPost.results[0].comments_count - 1,
+          },
+        ],
+      }));
+
+      setComments((prevComments) => ({
+        ...prevComments,
+        results: prevComments.results.filter((comment) => comment.id !== id),
+      }));
+    } catch (err) {}
+  };
+
+  return (
+    <>
+      <hr />
+      <Media>
+        <Link to={`/profiles/${profile_id}`}>
+          <Avatar src={profile_image} />
+        </Link>
+        <Media.Body className="align-self-center ml-2">
+          <span className={styles.Owner}>{owner}</span>
+          <span className={styles.Date}>{updated_at}</span>
+          {showEditForm ? (
+            <CommentEditForm
+              id={id}
+              profile_id={profile_id}
+              content={content}
+              profileImage={profile_image}
+              setComments={setComments}
+              setShowEditForm={setShowEditForm}
+            />
+          ) : (
+            <p>{content}</p>
+          )}
+        </Media.Body>
+        {is_owner && !showEditForm && (
+          <MoreDropdown
+            handleEdit={() => setShowEditForm(true)}
+            handleDelete={handleDelete}
+          />
+        )}
+      </Media>
+    </>
+  );
 };
 
-export const followHelper = (profile, clickedProfile, following_id) => {
-  return profile.id === clickedProfile.id
-    ? // This is the profile I clicked on,
-      // update its followers count and set its following id
-      {
-        ...profile,
-        followers_count: profile.followers_count + 1,
-        following_id,
-      }
-    : profile.is_owner
-    ? // This is the profile of the logged in user
-      // update its following count
-      { ...profile, following_count: profile.following_count + 1 }
-    : // this is not the profile the user clicked on or the profile
-      // the user owns, so just return it unchanged
-      profile;
-};
-
-export const unfollowHelper = (profile, clickedProfile) => {
-  return profile.id === clickedProfile.id
-    ? // This is the profile I clicked on,
-      // update its followers count and set its following id
-      {
-        ...profile,
-        followers_count: profile.followers_count - 1,
-        following_id: null,
-      }
-    : profile.is_owner
-    ? // This is the profile of the logged in user
-      // update its following count
-      { ...profile, following_count: profile.following_count - 1 }
-    : // this is not the profile the user clicked on or the profile
-      // the user owns, so just return it unchanged
-      profile;
-};
-
-export const setTokenTimestamp = (data) => {
-  const refreshTokenTimestamp = jwtDecode(data?.refresh_token).exp;
-  localStorage.setItem("refreshTokenTimestamp", refreshTokenTimestamp);
-};
-
-export const shouldRefreshToken = () => {
-  return !!localStorage.getItem("refreshTokenTimestamp");
-};
-
-export const removeTokenTimestamp = () => {
-  localStorage.removeItem("refreshTokenTimestamp");
-};
+export default Comment;
