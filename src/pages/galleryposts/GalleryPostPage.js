@@ -8,7 +8,7 @@ import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import GalleryPost from "./GalleryPost";
-import Comment from "../comments/Comment";
+import GalleryComment from "../gallerycomments/GalleryComment";
 
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -24,12 +24,12 @@ function GalleryPostPage() {
 
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
-  const [comments, setComments] = useState({ results: [] });
+  const [gallerycomments, setGalleryComments] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: gallerypost }, { data: gallery_comments }] = await Promise.all([
+        const [{ data: gallerypost }, { data: gallerycomments }] = await Promise.all([
           axiosReq.get(`/galleryposts/${id}`),
           axiosReq.get(`/gallery_comments/?gallerypost=${id}`),
         ]);

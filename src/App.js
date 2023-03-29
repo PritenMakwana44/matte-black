@@ -10,6 +10,10 @@ import PostPage from "./pages/posts/PostPage";
 import PostsPage from "./pages/posts/PostsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import PostEditForm from "./pages/posts/PostEditForm";
+import GalleryPostCreateForm from "./pages/galleryposts/GalleryPostCreateForm";
+import GalleryPostPage from "./pages/galleryposts/GalleryPostPage";
+import GalleryPostsPage from "./pages/galleryposts/GalleryPostsPage";
+import GalleryPostEditForm from "./pages/galleryposts/GalleryPostEditForm";
 import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
@@ -34,6 +38,13 @@ function App() {
           />
           <Route
             exact
+            path="/galleryposts"
+            render={() => (
+              <GalleryPostsPage message="No results found. Adjust the search keyword." />
+            )}
+          />
+          <Route
+            exact
             path="/feed"
             render={() => (
               <PostsPage
@@ -44,7 +55,7 @@ function App() {
           />
           <Route
             exact
-            path="/liked"
+            path="/saves"
             render={() => (
               <PostsPage
                 message="No results found. Adjust the search keyword or like a post."
@@ -57,6 +68,9 @@ function App() {
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
+          <Route exact path="/galleryposts/create" render={() => <GalleryPostCreateForm />} />
+          <Route exact path="/galleryposts/:id" render={() => <GalleryPostPage />} />
+          <Route exact path="/galleryposts/:id/edit" render={() => <GalleryPostEditForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route
             exact

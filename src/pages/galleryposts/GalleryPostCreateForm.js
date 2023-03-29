@@ -44,7 +44,7 @@ function GalleryPostCreateForm() {
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
-      setgalleryPostData({
+      setGalleryPostData({
         ...gallerypostData,
         image: URL.createObjectURL(event.target.files[0]),
       });
@@ -112,7 +112,7 @@ function GalleryPostCreateForm() {
         cancel
       </Button>
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        create
+        gallerycreate
       </Button>
     </div>
   );

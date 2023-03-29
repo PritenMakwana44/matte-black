@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/Post.module.css";
+import styles from "../../styles/GalleryPost.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import Card from "react-bootstrap/Card";
@@ -18,9 +18,9 @@ const GalleryPost = (props) => {
     owner,
     profile_id,
     profile_image,
-    gallery_comments_count,
-    gallery_saves_count,
-    gallery_save_id,
+    gallerycomments_count,
+    gallerysaves_count,
+    gallerysave_id,
     title,
     item_list,
     image,
@@ -34,7 +34,7 @@ const GalleryPost = (props) => {
   const history = useHistory();
 
   const handleEdit = () => {
-    history.push(`/gallery-posts/${id}/edit`);
+    history.push(`/galleryposts/${id}/edit`);
   };
 
   const handleDelete = async () => {
@@ -48,12 +48,12 @@ const GalleryPost = (props) => {
 
   const handleSave = async () => {
     try {
-      const { data } = await axiosRes.post("/gallery_saves/", { gallery_post: id });
+      const { data } = await axiosRes.post("/gallery_saves/", { gallerypost: id });
       setGalleryPosts((prevGalleryPosts) => ({
         ...prevGalleryPosts,
-        results: prevGalleryPosts.results.map((gallery_post) => {
-          return gallery_post.id === id
-            ? { ...gallery_post, gallery_saves_count: gallery_post.gallery_saves_count + 1, gallery_save_id: data.id }
+        results: prevGalleryPosts.results.map((gallerypost) => {
+          return gallerypost.id === id
+            ? { ...gallerypost, gallery_saves_count: gallerypost.gallery_saves_count + 1, gallery_save_id: data.id }
             : gallerypost;
         }),
       }));
@@ -64,7 +64,7 @@ const GalleryPost = (props) => {
 
   const handleUnsave = async () => {
     try {
-      await axiosRes.delete(`/gallery_saves/${gallery_save_id}/`);
+      await axiosRes.delete(`/gallerysaves/${gallerysave_id}/`);
       setGalleryPosts((prevGalleryPosts) => ({
         ...prevGalleryPosts,
         results: prevGalleryPosts.results.map((gallerypost) => {
@@ -111,7 +111,7 @@ const GalleryPost = (props) => {
             >
               <i className="far fa-heart" />
             </OverlayTrigger>
-          ) : gallery_save_id ? (
+          ) : gallerysave_id ? (
             <span onClick={handleUnsave}>
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
@@ -127,11 +127,11 @@ const GalleryPost = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           )}
-          {saves_count}
+          {gallerysaves_count}
           <Link to={`/galleryposts/${id}`}>
             <i className="far fa-comments" />
           </Link>
-          {gallery_comments_count}
+          {gallerycomments_count}
         </div>
       </Card.Body>
     </Card>

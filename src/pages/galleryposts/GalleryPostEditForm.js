@@ -53,8 +53,8 @@ function GalleryPostEditForm() {
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
-      setPostData({
-        ...postData,
+      setGalleryPostData({
+        ...gallerypostData,
         image: URL.createObjectURL(event.target.files[0]),
       });
     }
