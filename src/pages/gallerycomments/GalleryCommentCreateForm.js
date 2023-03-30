@@ -19,7 +19,7 @@ function GalleryCommentCreateForm(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await axiosRes.gallerypost("/gallerycomments/", {
+      const { data } = await axiosRes.post("/gallerycomments/", {
         content,
         gallerypost,
       });

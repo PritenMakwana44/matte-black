@@ -75,6 +75,16 @@ const NavBar = () => {
         <i className="fas fa-heart"></i>Saved
       </NavLink>
 
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/contact"
+      >
+        <i className="fas fa-envelope"></i>Contact us
+      </NavLink>
+
+      
+
 
 
 

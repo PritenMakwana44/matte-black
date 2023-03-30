@@ -39,7 +39,7 @@ const GalleryPost = (props) => {
 
   const handleDelete = async () => {
     try {
-      await axiosRes.delete(`/gallery-posts/${id}/`);
+      await axiosRes.delete(`/galleryposts/${id}/`);
       history.goBack();
     } catch (err) {
       // console.log(err);
@@ -48,7 +48,7 @@ const GalleryPost = (props) => {
 
   const handleSave = async () => {
     try {
-      const { data } = await axiosRes.post("/gallery_saves/", { gallerypost: id });
+      const { data } = await axiosRes.post("/gallerysaves/", { gallerypost: id });
       setGalleryPosts((prevGalleryPosts) => ({
         ...prevGalleryPosts,
         results: prevGalleryPosts.results.map((gallerypost) => {

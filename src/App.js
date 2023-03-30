@@ -19,6 +19,8 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import NotFound from "./components/NotFound";
+import ContactForm from './pages/contact/ContactForm';
+import Confirmation from './pages/contact/Confirmation';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -89,6 +91,8 @@ function App() {
           />
 
           <Route render={() => <NotFound />} />
+          <Route exact path="/contact" render={() => <ContactForm />} />
+					<Route exact path="/confirmation" render={() => <Confirmation />} />
         </Switch>
       </Container>
     </div>

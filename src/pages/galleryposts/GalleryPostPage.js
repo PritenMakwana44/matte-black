@@ -31,7 +31,7 @@ function GalleryPostPage() {
       try {
         const [{ data: gallerypost }, { data: gallerycomments }] = await Promise.all([
           axiosReq.get(`/galleryposts/${id}`),
-          axiosReq.get(`/gallery_comments/?gallerypost=${id}`),
+          axiosReq.get(`/gallerycomments/?gallerypost=${id}`),
         ]);
         setGalleryPost({ results: [gallerypost] });
         setGalleryComments(gallerycomments);

@@ -60,7 +60,7 @@ function GalleryPostCreateForm() {
     formData.append("image", imageInput.current.files[0]);
 
     try {
-      const { data } = await axiosReq.gallerypost("/galleryposts/", formData);
+      const { data } = await axiosReq.post("/galleryposts/", formData);
       history.push(`/galleryposts/${data.id}`);
     } catch (err) {
       // console.log(err);
@@ -112,7 +112,7 @@ function GalleryPostCreateForm() {
         cancel
       </Button>
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        gallerycreate
+        Create Post
       </Button>
     </div>
   );
