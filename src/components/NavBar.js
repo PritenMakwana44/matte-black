@@ -78,7 +78,7 @@ const NavBar = () => {
       <OverlayTrigger placement="bottom"
       overlay={<Tooltip>Gallery posts feed</Tooltip>}
       >
-      <i className="fas fa-stream"></i>
+      <i className="fa-solid fa-camera-retro"></i>
       </OverlayTrigger>
     </NavLink>
       <NavLink
@@ -131,19 +131,30 @@ const NavBar = () => {
   const loggedOutIcons = (
     <>
       <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        to="/signin"
+      className={styles.NavLink}
+      activeClassName={styles.Active}
+      to="/signin"
       >
-        <i className="fas fa-sign-in-alt"></i>Sign in
-      </NavLink>
-      <NavLink
-        to="/signup"
-        className={styles.NavLink}
-        activeClassName={styles.Active}
+      <OverlayTrigger placement="bottom"
+      overlay={<Tooltip>Sign in</Tooltip>}
       >
-        <i className="fas fa-user-plus"></i>Sign up
-      </NavLink>
+      <i className="fas fa-sign-in-alt"></i>
+      </OverlayTrigger>
+    </NavLink>
+      
+
+    <NavLink
+     className={styles.NavLink}
+     activeClassName={styles.Active}
+     to="/signup"
+     >
+     <OverlayTrigger placement="bottom"
+     overlay={<Tooltip>Sign up</Tooltip>}
+     >
+     <i className="fas fa-user-plus"></i>
+     </OverlayTrigger>
+    </NavLink>
+
     </>
   );
 
@@ -157,7 +168,7 @@ const NavBar = () => {
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
-            <img src={logo} alt="logo" height="45" />
+            <img src={logo} alt="logo" height="50" />
           </Navbar.Brand>
         </NavLink>
         {currentUser && addPostIcon}
@@ -183,15 +194,6 @@ const NavBar = () => {
             <i className="fas fa-home"></i>
             </OverlayTrigger>
             </NavLink>
-
-
-
-
-
-
-
-
-
 
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
