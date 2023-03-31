@@ -89,10 +89,10 @@ function App() {
             path="/profiles/:id/edit"
             render={() => <ProfileEditForm />}
           />
-
-          <Route render={() => <NotFound />} />
           <Route exact path="/contact" render={() => <ContactForm />} />
 					<Route exact path="/confirmation" render={() => <Confirmation />} />
+          <Route render={() => <NotFound />} />
+          
         </Switch>
       </Container>
     </div>

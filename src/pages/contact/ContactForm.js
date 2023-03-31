@@ -19,13 +19,13 @@ import { axiosReq } from "../../api/axiosDefaults";
 const ContactForm = () => {
   useRedirect("loggedOut");
   const [contactData, setContactData] = useState({
-    fname: "",
-    lname: "",
+    firstname: "",
+    lastname: "",
     email: "",
     content: "",
   });
 
-  const { fname, lname, email, content } = contactData;
+  const { firstname, lastname, email, content } = contactData;
   const [errors, setErrors] = useState({});
   const history = useHistory();
 
@@ -57,12 +57,12 @@ const ContactForm = () => {
               <Form.Label>First name</Form.Label>
               <Form.Control
                 type="text"
-                name="fname"
-                value={fname}
+                name="firstname"
+                value={firstname}
                 onChange={handleChange}
               />
             </Form.Group>
-            {errors.fname?.map((message, idx) => (
+            {errors.firstname?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}
               </Alert>
@@ -72,12 +72,12 @@ const ContactForm = () => {
               <Form.Label>Last name</Form.Label>
               <Form.Control
                 type="text"
-                name="lname"
-                value={lname}
+                name="lastname"
+                value={lastname}
                 onChange={handleChange}
               />
             </Form.Group>
-            {errors.lname?.map((message, idx) => (
+            {errors.lastname?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}
               </Alert>
