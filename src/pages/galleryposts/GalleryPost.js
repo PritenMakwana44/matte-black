@@ -19,8 +19,8 @@ const GalleryPost = (props) => {
     profile_id,
     profile_image,
     gallerycomments_count,
-    gallerysaves_count,
-    gallerysave_id,
+    saves_count,
+    save_id,
     title,
     item_list,
     image,
@@ -111,7 +111,7 @@ const GalleryPost = (props) => {
             >
               <i className="far fa-heart" />
             </OverlayTrigger>
-          ) : gallerysave_id ? (
+          ) : save_id ? (
             <span onClick={handleUnsave}>
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
@@ -127,7 +127,7 @@ const GalleryPost = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           )}
-          {gallerysaves_count}
+          {saves_count}
           <Link to={`/galleryposts/${id}`}>
             <i className="far fa-comments" />
           </Link>

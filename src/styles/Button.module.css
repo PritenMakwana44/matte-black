@@ -9,6 +9,8 @@
     min-width: 75px;
     background-color: #28282B;
     color: grey;
+    text-transform: capitalize;
+
   }
 
   .Button:hover {
