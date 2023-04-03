@@ -4,8 +4,6 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import Card from "react-bootstrap/Card";
 import Media from "react-bootstrap/Media";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
 
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
@@ -19,14 +17,11 @@ const GalleryPost = (props) => {
     profile_id,
     profile_image,
     gallerycomments_count,
-    saves_count,
-    save_id,
     title,
     item_list,
     image,
     updated_at,
     GalleryPostPage,
-    setGalleryPosts,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -46,37 +41,6 @@ const GalleryPost = (props) => {
     }
   };
 
-  const handleSave = async () => {
-    try {
-      const { data } = await axiosRes.post("/gallerysaves/", { gallerypost: id });
-      setGalleryPosts((prevGalleryPosts) => ({
-        ...prevGalleryPosts,
-        results: prevGalleryPosts.results.map((gallerypost) => {
-          return gallerypost.id === id
-            ? { ...gallerypost, gallery_saves_count: gallerypost.gallery_saves_count + 1, gallery_save_id: data.id }
-            : gallerypost;
-        }),
-      }));
-    } catch (err) {
-      // console.log(err);
-    }
-  };
-
-  const handleUnsave = async () => {
-    try {
-      await axiosRes.delete(`/gallerysaves/${gallerysave_id}/`);
-      setGalleryPosts((prevGalleryPosts) => ({
-        ...prevGalleryPosts,
-        results: prevGalleryPosts.results.map((gallerypost) => {
-          return gallerypost.id === id
-            ? { ...gallerypost, gallery_saves_count: gallerypost.gallery_saves_count - 1, gallery_save_id: null }
-            : gallerypost;
-        }),
-      }));
-    } catch (err) {
-      // console.log(err);
-    }
-  };
 
   return (
     <Card className={styles.GalleryPost}>
@@ -104,34 +68,11 @@ const GalleryPost = (props) => {
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {item_list && <Card.Text>{item_list}</Card.Text>}
         <div className={styles.GalleryPostBar}>
-          {is_owner ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>You can't save your own post!</Tooltip>}
-            >
-              <i className="far fa-heart" />
-            </OverlayTrigger>
-          ) : save_id ? (
-            <span onClick={handleUnsave}>
-              <i className={`fas fa-heart ${styles.Heart}`} />
-            </span>
-          ) : currentUser ? (
-            <span onClick={handleSave}>
-              <i className={`far fa-heart ${styles.HeartOutline}`} />
-            </span>
-          ) : (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to save posts!</Tooltip>}
-            >
-              <i className="far fa-heart" />
-            </OverlayTrigger>
-          )}
-          {saves_count}
           <Link to={`/galleryposts/${id}`}>
             <i className="far fa-comments" />
           </Link>
           {gallerycomments_count}
+          
         </div>
       </Card.Body>
     </Card>

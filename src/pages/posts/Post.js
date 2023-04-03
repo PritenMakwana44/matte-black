@@ -50,7 +50,7 @@ const Post = (props) => {
 
   const handleSave = async () => {
     try {
-      const { data } = await axiosRes.post("/save/", { post: id });
+      const { data } = await axiosRes.post("/save/", { posts: id });
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
@@ -71,7 +71,7 @@ const Post = (props) => {
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-            ? { ...post, save_count: post.save_count - 1, save_id: null }
+            ? { ...post, saves_count: post.save_count - 1, save_id: null }
             : post;
         }),
       }));

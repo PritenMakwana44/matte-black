@@ -84,7 +84,7 @@ const NavBar = () => {
       <NavLink
       className={styles.NavLink}
       activeClassName={styles.Active}
-      to="Saved"
+      to="saved"
       >
       <OverlayTrigger placement="bottom"
       overlay={<Tooltip>Saved</Tooltip>}

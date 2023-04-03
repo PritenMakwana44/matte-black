@@ -10,7 +10,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import GalleryPost from "./GalleryPost";
 import GalleryComment from "../gallerycomments/GalleryComment";
 
-import CommentCreateForm from "../comments/CommentCreateForm";
+import CommentCreateForm from "../gallerycomments/GalleryCommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import InfiniteScroll from "react-infinite-scroll-component";
