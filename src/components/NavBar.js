@@ -62,7 +62,7 @@ const NavBar = () => {
       <NavLink
       className={styles.NavLink}
       activeClassName={styles.Active}
-      to="feed"
+      to="/feed"
       >
       <OverlayTrigger placement="bottom"
       overlay={<Tooltip>Post Feed</Tooltip>}
@@ -73,7 +73,7 @@ const NavBar = () => {
       <NavLink
       className={styles.NavLink}
       activeClassName={styles.Active}
-      to="galleryposts"
+      to="/galleryposts"
       >
       <OverlayTrigger placement="bottom"
       overlay={<Tooltip>Gallery posts feed</Tooltip>}
@@ -84,7 +84,7 @@ const NavBar = () => {
       <NavLink
       className={styles.NavLink}
       activeClassName={styles.Active}
-      to="saved"
+      to="/saved"
       >
       <OverlayTrigger placement="bottom"
       overlay={<Tooltip>Saved</Tooltip>}
@@ -95,7 +95,7 @@ const NavBar = () => {
       <NavLink
       className={styles.NavLink}
       activeClassName={styles.Active}
-      to="contact"
+      to="/contact"
       >
       <OverlayTrigger placement="bottom"
       overlay={<Tooltip>Contact Us</Tooltip>}
