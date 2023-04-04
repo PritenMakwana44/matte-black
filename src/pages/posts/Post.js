@@ -53,10 +53,10 @@ const Post = (props) => {
       const { data } = await axiosRes.post("/save/", { posts: id });
       setPosts((prevPosts) => ({
         ...prevPosts,
-        results: prevPosts.results.map((post) => {
-          return post.id === id
-            ? { ...post, saves_count: post.saves_count + 1, save_id: data.id }
-            : post;
+        results: prevPosts.results.map((posts) => {
+          return posts.id === id
+            ? { ...posts, save_count: posts.save_count + 1, save_id: data.id }
+            : posts;
         }),
       }));
     } catch (err) {
@@ -69,10 +69,10 @@ const Post = (props) => {
       await axiosRes.delete(`/save/${save_id}/`);
       setPosts((prevPosts) => ({
         ...prevPosts,
-        results: prevPosts.results.map((post) => {
-          return post.id === id
-            ? { ...post, saves_count: post.save_count - 1, save_id: null }
-            : post;
+        results: prevPosts.results.map((posts) => {
+          return posts.id === id
+            ? { ...posts, save_count: posts.save_count - 1, save_id: null }
+            : posts;
         }),
       }));
     } catch (err) {
