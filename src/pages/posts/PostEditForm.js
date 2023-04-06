@@ -1,91 +1,91 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react'
 
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Alert from "react-bootstrap/Alert";
-import Image from "react-bootstrap/Image";
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
+import Alert from 'react-bootstrap/Alert'
+import Image from 'react-bootstrap/Image'
 
-import styles from "../../styles/PostCreateEditForm.module.css";
-import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
+import styles from '../../styles/PostCreateEditForm.module.css'
+import appStyles from '../../App.module.css'
+import btnStyles from '../../styles/Button.module.css'
 
-import { useHistory, useParams } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
+import { useHistory, useParams } from 'react-router'
+import { axiosReq } from '../../api/axiosDefaults'
 
-function PostEditForm() {
-  const [errors, setErrors] = useState({});
+function PostEditForm () {
+  const [errors, setErrors] = useState({})
 
   const [postData, setPostData] = useState({
-    title: "",
-    description: "",
-    type: "",
-    year: "",
-    image: "",
-  });
-  const { title, description, type, year, image } = postData;
+    title: '',
+    description: '',
+    type: '',
+    year: '',
+    image: ''
+  })
+  const { title, description, type, year, image } = postData
 
-  const imageInput = useRef(null);
-  const history = useHistory();
-  const { id } = useParams();
+  const imageInput = useRef(null)
+  const history = useHistory()
+  const { id } = useParams()
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const { data } = await axiosReq.get(`/posts/${id}/`);
-        const { title, description, type, year, image, is_owner } = data;
+        const { data } = await axiosReq.get(`/posts/${id}/`)
+        const { title, description, type, year, image, is_owner } = data
 
-        is_owner ? setPostData({ title, description, type, year, image }) : history.push("/");
+        is_owner ? setPostData({ title, description, type, year, image }) : history.push('/')
       } catch (err) {
         // console.log(err);
       }
-    };
+    }
 
-    handleMount();
-  }, [history, id]);
+    handleMount()
+  }, [history, id])
 
   const handleChange = (event) => {
     setPostData({
       ...postData,
-      [event.target.name]: event.target.value,
-    });
-  };
+      [event.target.name]: event.target.value
+    })
+  }
 
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
-      URL.revokeObjectURL(image);
+      URL.revokeObjectURL(image)
       setPostData({
         ...postData,
-        image: URL.createObjectURL(event.target.files[0]),
-      });
+        image: URL.createObjectURL(event.target.files[0])
+      })
     }
-  };
+  }
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData();
+    event.preventDefault()
+    const formData = new FormData()
 
-    formData.append("title", title);
-    formData.append("description", description);
-    formData.append("type", type);
-    formData.append("year", year);
+    formData.append('title', title)
+    formData.append('description', description)
+    formData.append('type', type)
+    formData.append('year', year)
 
     if (imageInput?.current?.files[0]) {
-      formData.append("image", imageInput.current.files[0]);
+      formData.append('image', imageInput.current.files[0])
     }
 
     try {
-      await axiosReq.put(`/posts/${id}/`, formData);
-      history.push(`/posts/${id}`);
+      await axiosReq.put(`/posts/${id}/`, formData)
+      history.push(`/posts/${id}`)
     } catch (err) {
       // console.log(err);
       if (err.response?.status !== 401) {
-        setErrors(err.response?.data);
+        setErrors(err.response?.data)
       }
     }
-  };
+  }
 
   const textFields = (
     <div className="text-center">
@@ -162,7 +162,7 @@ function PostEditForm() {
         save
       </Button>
     </div>
-  );
+  )
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -205,7 +205,7 @@ function PostEditForm() {
         </Col>
       </Row>
     </Form>
-  );
+  )
 }
 
-export default PostEditForm;
+export default PostEditForm

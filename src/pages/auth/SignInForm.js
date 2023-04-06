@@ -1,52 +1,52 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState } from 'react'
+import axios from 'axios'
 
-import Form from "react-bootstrap/Form";
-import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Image from "react-bootstrap/Image";
-import Container from "react-bootstrap/Container";
+import Form from 'react-bootstrap/Form'
+import Alert from 'react-bootstrap/Alert'
+import Button from 'react-bootstrap/Button'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
+import Image from 'react-bootstrap/Image'
+import Container from 'react-bootstrap/Container'
 import logo from '../../assets/matteblacklogo.png'
 
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory } from 'react-router-dom'
 
-import styles from "../../styles/SignInUpForm.module.css";
-import btnStyles from "../../styles/Button.module.css";
-import appStyles from "../../App.module.css";
-import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import styles from '../../styles/SignInUpForm.module.css'
+import btnStyles from '../../styles/Button.module.css'
+import appStyles from '../../App.module.css'
+import { useSetCurrentUser } from '../../contexts/CurrentUserContext'
 
-function SignInForm() {
-  const setCurrentUser = useSetCurrentUser();
+function SignInForm () {
+  const setCurrentUser = useSetCurrentUser()
 
   const [signInData, setSignInData] = useState({
-    username: "",
-    password: "",
-  });
-  const { username, password } = signInData;
+    username: '',
+    password: ''
+  })
+  const { username, password } = signInData
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({})
 
-  const history = useHistory();
+  const history = useHistory()
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     try {
-      const { data } = await axios.post("/dj-rest-auth/login/", signInData);
-      setCurrentUser(data.user);
-      history.push("/");
+      const { data } = await axios.post('/dj-rest-auth/login/', signInData)
+      setCurrentUser(data.user)
+      history.push('/')
     } catch (err) {
-      setErrors(err.response?.data);
+      setErrors(err.response?.data)
     }
-  };
+  }
 
   const handleChange = (event) => {
     setSignInData({
       ...signInData,
-      [event.target.name]: event.target.value,
-    });
-  };
+      [event.target.name]: event.target.value
+    })
+  }
 
   return (
     <Row className={styles.Row}>
@@ -116,7 +116,7 @@ function SignInForm() {
         />
       </Col>
     </Row>
-  );
+  )
 }
 
-export default SignInForm;
+export default SignInForm

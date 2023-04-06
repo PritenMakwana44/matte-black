@@ -1,14 +1,14 @@
-import React from "react";
-import styles from "../../styles/GalleryPost.module.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import React from 'react'
+import styles from '../../styles/GalleryPost.module.css'
+import { useCurrentUser } from '../../contexts/CurrentUserContext'
 
-import Card from "react-bootstrap/Card";
-import Media from "react-bootstrap/Media";
+import Card from 'react-bootstrap/Card'
+import Media from 'react-bootstrap/Media'
 
-import { Link, useHistory } from "react-router-dom";
-import Avatar from "../../components/Avatar";
-import { axiosRes } from "../../api/axiosDefaults";
-import { MoreDropdown } from "../../components/MoreDropdown";
+import { Link, useHistory } from 'react-router-dom'
+import Avatar from '../../components/Avatar'
+import { axiosRes } from '../../api/axiosDefaults'
+import { MoreDropdown } from '../../components/MoreDropdown'
 
 const GalleryPost = (props) => {
   const {
@@ -21,26 +21,25 @@ const GalleryPost = (props) => {
     item_list,
     image,
     updated_at,
-    GalleryPostPage,
-  } = props;
+    GalleryPostPage
+  } = props
 
-  const currentUser = useCurrentUser();
-  const is_owner = currentUser?.username === owner;
-  const history = useHistory();
+  const currentUser = useCurrentUser()
+  const is_owner = currentUser?.username === owner
+  const history = useHistory()
 
   const handleEdit = () => {
-    history.push(`/galleryposts/${id}/edit`);
-  };
+    history.push(`/galleryposts/${id}/edit`)
+  }
 
   const handleDelete = async () => {
     try {
-      await axiosRes.delete(`/galleryposts/${id}/`);
-      history.goBack();
+      await axiosRes.delete(`/galleryposts/${id}/`)
+      history.goBack()
     } catch (err) {
       // console.log(err);
     }
-  };
-
+  }
 
   return (
     <Card className={styles.GalleryPost}>
@@ -72,11 +71,11 @@ const GalleryPost = (props) => {
             <i className="far fa-comments" />
           </Link>
           {gallerycomments_count}
-          
+
         </div>
       </Card.Body>
     </Card>
-  );
-};
+  )
+}
 
-export default GalleryPost;
+export default GalleryPost

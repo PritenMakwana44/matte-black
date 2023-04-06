@@ -1,33 +1,32 @@
-import React from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
-import logo from "../assets/logo.png";
-import styles from "../styles/NavBar.module.css";
-import { NavLink } from "react-router-dom";
+import React from 'react'
+import { Navbar, Container, Nav } from 'react-bootstrap'
+import logo from '../assets/logo.png'
+import styles from '../styles/NavBar.module.css'
+import { NavLink } from 'react-router-dom'
 import {
   useCurrentUser,
-  useSetCurrentUser,
-} from "../contexts/CurrentUserContext";
-import Avatar from "./Avatar";
-import axios from "axios";
-import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
-
+  useSetCurrentUser
+} from '../contexts/CurrentUserContext'
+import Avatar from './Avatar'
+import axios from 'axios'
+import useClickOutsideToggle from '../hooks/useClickOutsideToggle'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import Tooltip from 'react-bootstrap/Tooltip'
 
 const NavBar = () => {
-  const currentUser = useCurrentUser();
-  const setCurrentUser = useSetCurrentUser();
+  const currentUser = useCurrentUser()
+  const setCurrentUser = useSetCurrentUser()
 
-  const { expanded, setExpanded, ref } = useClickOutsideToggle();
+  const { expanded, setExpanded, ref } = useClickOutsideToggle()
 
   const handleSignOut = async () => {
     try {
-      await axios.post("dj-rest-auth/logout/");
-      setCurrentUser(null);
+      await axios.post('dj-rest-auth/logout/')
+      setCurrentUser(null)
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
-  };
+  }
 
   const addPostIcon = (
     <NavLink
@@ -41,7 +40,7 @@ const NavBar = () => {
       <i className="far fa-plus-square"></i>
       </OverlayTrigger>
     </NavLink>
-  );
+  )
 
   const addGalleryPostIcon = (
     <NavLink
@@ -55,7 +54,7 @@ const NavBar = () => {
       <i className="far fa-plus-square"></i>
       </OverlayTrigger>
     </NavLink>
-  );
+  )
 
   const loggedInIcons = (
     <>
@@ -104,8 +103,6 @@ const NavBar = () => {
       </OverlayTrigger>
     </NavLink>
 
-      
-
     <NavLink
       className={styles.NavLink}
       onClick={handleSignOut}
@@ -127,7 +124,7 @@ const NavBar = () => {
         {currentUser?.username}
       </NavLink>
     </>
-  );
+  )
   const loggedOutIcons = (
     <>
       <NavLink
@@ -141,7 +138,6 @@ const NavBar = () => {
       <i className="fas fa-sign-in-alt"></i>
       </OverlayTrigger>
     </NavLink>
-      
 
     <NavLink
      className={styles.NavLink}
@@ -156,7 +152,7 @@ const NavBar = () => {
     </NavLink>
 
     </>
-  );
+  )
 
   return (
     <Navbar
@@ -180,7 +176,6 @@ const NavBar = () => {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
-            
 
             <NavLink
               exact
@@ -200,7 +195,7 @@ const NavBar = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar

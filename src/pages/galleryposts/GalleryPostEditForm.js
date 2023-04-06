@@ -1,86 +1,86 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react'
 
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Alert from "react-bootstrap/Alert";
-import Image from "react-bootstrap/Image";
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
+import Alert from 'react-bootstrap/Alert'
+import Image from 'react-bootstrap/Image'
 
-import styles from "../../styles/GalleryPostCreateEditForm.module.css";
-import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
+import styles from '../../styles/GalleryPostCreateEditForm.module.css'
+import appStyles from '../../App.module.css'
+import btnStyles from '../../styles/Button.module.css'
 
-import { useHistory, useParams } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
+import { useHistory, useParams } from 'react-router'
+import { axiosReq } from '../../api/axiosDefaults'
 
-function GalleryPostEditForm() {
-  const [errors, setErrors] = useState({});
+function GalleryPostEditForm () {
+  const [errors, setErrors] = useState({})
 
   const [gallerypostData, setGalleryPostData] = useState({
-    title: "",
-    item_list: "",
-  });
-  const { title, item_list, image } = gallerypostData;
+    title: '',
+    item_list: ''
+  })
+  const { title, item_list, image } = gallerypostData
 
-  const imageInput = useRef(null);
-  const history = useHistory();
-  const { id } = useParams();
+  const imageInput = useRef(null)
+  const history = useHistory()
+  const { id } = useParams()
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const { data } = await axiosReq.get(`/galleryposts/${id}/`);
-        const { title, item_list, image, is_owner } = data;
+        const { data } = await axiosReq.get(`/galleryposts/${id}/`)
+        const { title, item_list, image, is_owner } = data
 
-        is_owner ? setGalleryPostData({ title, item_list, image }) : history.push("/");
+        is_owner ? setGalleryPostData({ title, item_list, image }) : history.push('/')
       } catch (err) {
         // console.log(err);
       }
-    };
+    }
 
-    handleMount();
-  }, [history, id]);
+    handleMount()
+  }, [history, id])
 
   const handleChange = (event) => {
     setGalleryPostData({
       ...gallerypostData,
-      [event.target.name]: event.target.value,
-    });
-  };
+      [event.target.name]: event.target.value
+    })
+  }
 
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
-      URL.revokeObjectURL(image);
+      URL.revokeObjectURL(image)
       setGalleryPostData({
         ...gallerypostData,
-        image: URL.createObjectURL(event.target.files[0]),
-      });
+        image: URL.createObjectURL(event.target.files[0])
+      })
     }
-  };
+  }
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData();
+    event.preventDefault()
+    const formData = new FormData()
 
-    formData.append("title", title);
-    formData.append("item_list", item_list);
+    formData.append('title', title)
+    formData.append('item_list', item_list)
 
     if (imageInput?.current?.files[0]) {
-      formData.append("image", imageInput.current.files[0]);
+      formData.append('image', imageInput.current.files[0])
     }
 
     try {
-      await axiosReq.put(`/galleryposts/${id}/`, formData);
-      history.push(`/galleryposts/${id}`);
+      await axiosReq.put(`/galleryposts/${id}/`, formData)
+      history.push(`/galleryposts/${id}`)
     } catch (err) {
       // console.log(err);
       if (err.response?.status !== 401) {
-        setErrors(err.response?.data);
+        setErrors(err.response?.data)
       }
     }
-  };
+  }
 
   const textFields = (
     <div className="text-center">
@@ -115,7 +115,6 @@ function GalleryPostEditForm() {
         </Alert>
       ))}
 
-
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
@@ -126,7 +125,7 @@ function GalleryPostEditForm() {
         save
       </Button>
     </div>
-  );
+  )
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -169,7 +168,7 @@ function GalleryPostEditForm() {
         </Col>
       </Row>
     </Form>
-  );
+  )
 }
 
-export default GalleryPostEditForm;
+export default GalleryPostEditForm

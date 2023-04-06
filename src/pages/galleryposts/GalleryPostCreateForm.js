@@ -1,74 +1,74 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState } from 'react'
 
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Alert from "react-bootstrap/Alert";
-import Image from "react-bootstrap/Image";
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
+import Alert from 'react-bootstrap/Alert'
+import Image from 'react-bootstrap/Image'
 
-import Asset from "../../components/Asset";
+import Asset from '../../components/Asset'
 
-import Upload from "../../assets/upload.png";
+import Upload from '../../assets/upload.png'
 
-import styles from "../../styles/GalleryPostCreateEditForm.module.css";
-import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
+import styles from '../../styles/GalleryPostCreateEditForm.module.css'
+import appStyles from '../../App.module.css'
+import btnStyles from '../../styles/Button.module.css'
 
-import { useHistory } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
-import { useRedirect } from "../../hooks/useRedirect";
+import { useHistory } from 'react-router'
+import { axiosReq } from '../../api/axiosDefaults'
+import { useRedirect } from '../../hooks/useRedirect'
 
-function GalleryPostCreateForm() {
-  useRedirect("loggedOut");
-  const [errors, setErrors] = useState({});
+function GalleryPostCreateForm () {
+  useRedirect('loggedOut')
+  const [errors, setErrors] = useState({})
 
   const [gallerypostData, setGalleryPostData] = useState({
-    title: "",
-    item_list: "",
-    image: "",
-  });
-  const { title, item_list, image } = gallerypostData;
+    title: '',
+    item_list: '',
+    image: ''
+  })
+  const { title, item_list, image } = gallerypostData
 
-  const imageInput = useRef(null);
-  const history = useHistory();
+  const imageInput = useRef(null)
+  const history = useHistory()
 
   const handleChange = (event) => {
     setGalleryPostData({
       ...gallerypostData,
-      [event.target.name]: event.target.value,
-    });
-  };
+      [event.target.name]: event.target.value
+    })
+  }
 
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
-      URL.revokeObjectURL(image);
+      URL.revokeObjectURL(image)
       setGalleryPostData({
         ...gallerypostData,
-        image: URL.createObjectURL(event.target.files[0]),
-      });
+        image: URL.createObjectURL(event.target.files[0])
+      })
     }
-  };
+  }
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData();
+    event.preventDefault()
+    const formData = new FormData()
 
-    formData.append("title", title);
-    formData.append("item_list", item_list);
-    formData.append("image", imageInput.current.files[0]);
+    formData.append('title', title)
+    formData.append('item_list', item_list)
+    formData.append('image', imageInput.current.files[0])
 
     try {
-      const { data } = await axiosReq.post("/galleryposts/", formData);
-      history.push(`/galleryposts/${data.id}`);
+      const { data } = await axiosReq.post('/galleryposts/', formData)
+      history.push(`/galleryposts/${data.id}`)
     } catch (err) {
       // console.log(err);
       if (err.response?.status !== 401) {
-        setErrors(err.response?.data);
+        setErrors(err.response?.data)
       }
     }
-  };
+  }
 
   const textFields = (
     <div className="text-center">
@@ -103,8 +103,6 @@ function GalleryPostCreateForm() {
         </Alert>
       ))}
 
-
-
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
@@ -115,7 +113,7 @@ function GalleryPostCreateForm() {
         Create Post
       </Button>
     </div>
-  );
+  )
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -125,7 +123,8 @@ function GalleryPostCreateForm() {
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-              {image ? (
+              {image
+                ? (
                 <>
                   <figure>
                     <Image className={appStyles.Image} src={image} rounded />
@@ -139,7 +138,8 @@ function GalleryPostCreateForm() {
                     </Form.Label>
                   </div>
                 </>
-              ) : (
+                  )
+                : (
                 <Form.Label
                   className="d-flex justify-content-center"
                   htmlFor="image-upload"
@@ -149,7 +149,7 @@ function GalleryPostCreateForm() {
                     message="Click or tap to upload an image"
                   />
                 </Form.Label>
-              )}
+                  )}
 
               <Form.File
                 id="image-upload"
@@ -172,7 +172,7 @@ function GalleryPostCreateForm() {
         </Col>
       </Row>
     </Form>
-  );
+  )
 }
 
-export default GalleryPostCreateForm;
+export default GalleryPostCreateForm

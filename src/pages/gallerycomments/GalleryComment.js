@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import Media from "react-bootstrap/Media";
-import { Link } from "react-router-dom";
-import Avatar from "../../components/Avatar";
-import { MoreDropdown } from "../../components/MoreDropdown";
-import GalleryCommentEditForm from "./GalleryCommentEditForm";
+import React, { useState } from 'react'
+import Media from 'react-bootstrap/Media'
+import { Link } from 'react-router-dom'
+import Avatar from '../../components/Avatar'
+import { MoreDropdown } from '../../components/MoreDropdown'
+import GalleryCommentEditForm from './GalleryCommentEditForm'
 
-import styles from "../../styles/GalleryComment.module.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { axiosRes } from "../../api/axiosDefaults";
+import styles from '../../styles/GalleryComment.module.css'
+import { useCurrentUser } from '../../contexts/CurrentUserContext'
+import { axiosRes } from '../../api/axiosDefaults'
 
 const GalleryComment = (props) => {
   const {
@@ -18,31 +18,31 @@ const GalleryComment = (props) => {
     content,
     id,
     setGalleryPost,
-    setGalleryComments,
-  } = props;
+    setGalleryComments
+  } = props
 
-  const [showEditForm, setShowEditForm] = useState(false);
-  const currentUser = useCurrentUser();
-  const is_owner = currentUser?.username === owner;
+  const [showEditForm, setShowEditForm] = useState(false)
+  const currentUser = useCurrentUser()
+  const is_owner = currentUser?.username === owner
 
   const handleDelete = async () => {
     try {
-      await axiosRes.delete(`/gallerycomments/${id}/`);
+      await axiosRes.delete(`/gallerycomments/${id}/`)
       setGalleryPost((prevPost) => ({
         results: [
           {
             ...prevPost.results[0],
-            gallery_comments_count: prevPost.results[0].gallery_comments_count - 1,
-          },
-        ],
-      }));
+            gallery_comments_count: prevPost.results[0].gallery_comments_count - 1
+          }
+        ]
+      }))
 
       setGalleryComments((prevGalleryComments) => ({
         ...prevGalleryComments,
-        results: prevGalleryComments.results.filter((gallerycomment) => gallerycomment.id !== id),
-      }));
+        results: prevGalleryComments.results.filter((gallerycomment) => gallerycomment.id !== id)
+      }))
     } catch (err) {}
-  };
+  }
 
   return (
     <>
@@ -54,7 +54,8 @@ const GalleryComment = (props) => {
         <Media.Body className="align-self-center ml-2">
           <span className={styles.Owner}>{owner}</span>
           <span className={styles.Date}>{updated_at}</span>
-          {showEditForm ? (
+          {showEditForm
+            ? (
             <GalleryCommentEditForm
               id={id}
               profile_id={profile_id}
@@ -63,9 +64,10 @@ const GalleryComment = (props) => {
               setGalleryComments={setGalleryComments}
               setShowEditForm={setShowEditForm}
             />
-          ) : (
+              )
+            : (
             <p>{content}</p>
-          )}
+              )}
         </Media.Body>
         {is_owner && !showEditForm && (
           <MoreDropdown
@@ -75,7 +77,7 @@ const GalleryComment = (props) => {
         )}
       </Media>
     </>
-  );
-};
+  )
+}
 
-export default GalleryComment;
+export default GalleryComment

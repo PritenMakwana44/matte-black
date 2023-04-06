@@ -1,16 +1,16 @@
-import React from "react";
-import styles from "../../styles/Post.module.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import React from 'react'
+import styles from '../../styles/Post.module.css'
+import { useCurrentUser } from '../../contexts/CurrentUserContext'
 
-import Card from "react-bootstrap/Card";
-import Media from "react-bootstrap/Media";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
+import Card from 'react-bootstrap/Card'
+import Media from 'react-bootstrap/Media'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import Tooltip from 'react-bootstrap/Tooltip'
 
-import { Link, useHistory } from "react-router-dom";
-import Avatar from "../../components/Avatar";
-import { axiosRes } from "../../api/axiosDefaults";
-import { MoreDropdown } from "../../components/MoreDropdown";
+import { Link, useHistory } from 'react-router-dom'
+import Avatar from '../../components/Avatar'
+import { axiosRes } from '../../api/axiosDefaults'
+import { MoreDropdown } from '../../components/MoreDropdown'
 
 const Post = (props) => {
   const {
@@ -28,57 +28,57 @@ const Post = (props) => {
     image,
     updated_at,
     postPage,
-    setPosts,
-  } = props;
+    setPosts
+  } = props
 
-  const currentUser = useCurrentUser();
-  const is_owner = currentUser?.username === owner;
-  const history = useHistory();
+  const currentUser = useCurrentUser()
+  const is_owner = currentUser?.username === owner
+  const history = useHistory()
 
   const handleEdit = () => {
-    history.push(`/posts/${id}/edit`);
-  };
+    history.push(`/posts/${id}/edit`)
+  }
 
   const handleDelete = async () => {
     try {
-      await axiosRes.delete(`/posts/${id}/`);
-      history.goBack();
+      await axiosRes.delete(`/posts/${id}/`)
+      history.goBack()
     } catch (err) {
       // console.log(err);
     }
-  };
+  }
 
   const handleSave = async () => {
     try {
-      const { data } = await axiosRes.post("/save/", { posts: id });
+      const { data } = await axiosRes.post('/save/', { posts: id })
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((posts) => {
           return posts.id === id
             ? { ...posts, save_count: posts.save_count + 1, save_id: data.id }
-            : posts;
-        }),
-      }));
+            : posts
+        })
+      }))
     } catch (err) {
       // console.log(err);
     }
-  };
+  }
 
   const handleUnsave = async () => {
     try {
-      await axiosRes.delete(`/save/${save_id}/`);
+      await axiosRes.delete(`/save/${save_id}/`)
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((posts) => {
           return posts.id === id
             ? { ...posts, save_count: posts.save_count - 1, save_id: null }
-            : posts;
-        }),
-      }));
+            : posts
+        })
+      }))
     } catch (err) {
       // console.log(err);
     }
-  };
+  }
 
   return (
     <Card className={styles.Post}>
@@ -108,29 +108,35 @@ const Post = (props) => {
         {type && <Card.Text>{type}</Card.Text>}
         {year && <Card.Text>{year}</Card.Text>}
         <div className={styles.PostBar}>
-          {is_owner ? (
+          {is_owner
+            ? (
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>You can't save your own post!</Tooltip>}
             >
               <i className="far fa-heart" />
             </OverlayTrigger>
-          ) : save_id ? (
+              )
+            : save_id
+              ? (
             <span onClick={handleUnsave}>
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
-          ) : currentUser ? (
+                )
+              : currentUser
+                ? (
             <span onClick={handleSave}>
               <i className={`far fa-heart ${styles.HeartOutline}`} />
             </span>
-          ) : (
+                  )
+                : (
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>Log in to save posts!</Tooltip>}
             >
               <i className="far fa-heart" />
             </OverlayTrigger>
-          )}
+                  )}
           {save_count}
           <Link to={`/posts/${id}`}>
             <i className="far fa-comments" />
@@ -139,7 +145,7 @@ const Post = (props) => {
         </div>
       </Card.Body>
     </Card>
-  );
-};
+  )
+}
 
-export default Post;
+export default Post

@@ -1,45 +1,45 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
+import Form from 'react-bootstrap/Form'
+import InputGroup from 'react-bootstrap/InputGroup'
 
-import styles from "../../styles/CommentCreateEditForm.module.css";
-import Avatar from "../../components/Avatar";
-import { axiosRes } from "../../api/axiosDefaults";
+import styles from '../../styles/CommentCreateEditForm.module.css'
+import Avatar from '../../components/Avatar'
+import { axiosRes } from '../../api/axiosDefaults'
 
-function CommentCreateForm(props) {
-  const { post, setPost, setComments, profileImage, profile_id } = props;
-  const [content, setContent] = useState("");
+function CommentCreateForm (props) {
+  const { post, setPost, setComments, profileImage, profile_id } = props
+  const [content, setContent] = useState('')
 
   const handleChange = (event) => {
-    setContent(event.target.value);
-  };
+    setContent(event.target.value)
+  }
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
     try {
-      const { data } = await axiosRes.post("/comments/", {
+      const { data } = await axiosRes.post('/comments/', {
         content,
-        post,
-      });
+        post
+      })
       setComments((prevComments) => ({
         ...prevComments,
-        results: [data, ...prevComments.results],
-      }));
+        results: [data, ...prevComments.results]
+      }))
       setPost((prevPost) => ({
         results: [
           {
             ...prevPost.results[0],
-            comments_count: prevPost.results[0].comments_count + 1,
-          },
-        ],
-      }));
-      setContent("");
+            comments_count: prevPost.results[0].comments_count + 1
+          }
+        ]
+      }))
+      setContent('')
     } catch (err) {
       // console.log(err);
     }
-  };
+  }
 
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
@@ -66,7 +66,7 @@ function CommentCreateForm(props) {
         post
       </button>
     </Form>
-  );
+  )
 }
 
-export default CommentCreateForm;
+export default CommentCreateForm

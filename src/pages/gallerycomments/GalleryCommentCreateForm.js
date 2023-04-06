@@ -1,45 +1,45 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
+import Form from 'react-bootstrap/Form'
+import InputGroup from 'react-bootstrap/InputGroup'
 
-import styles from "../../styles/GalleryCommentCreateEditForm.module.css";
-import Avatar from "../../components/Avatar";
-import { axiosRes } from "../../api/axiosDefaults";
+import styles from '../../styles/GalleryCommentCreateEditForm.module.css'
+import Avatar from '../../components/Avatar'
+import { axiosRes } from '../../api/axiosDefaults'
 
-function GalleryCommentCreateForm(props) {
-  const { gallerypost, setGalleryPost, setGalleryComments, profileImage, profile_id } = props;
-  const [content, setContent] = useState("");
+function GalleryCommentCreateForm (props) {
+  const { gallerypost, setGalleryPost, setGalleryComments, profileImage, profile_id } = props
+  const [content, setContent] = useState('')
 
   const handleChange = (event) => {
-    setContent(event.target.value);
-  };
+    setContent(event.target.value)
+  }
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
     try {
-      const { data } = await axiosRes.post("/gallerycomments/", {
+      const { data } = await axiosRes.post('/gallerycomments/', {
         content,
-        gallerypost,
-      });
+        gallerypost
+      })
       setGalleryComments((prevGalleryComments) => ({
         ...prevGalleryComments,
-        results: [data, ...prevGalleryComments.results],
-      }));
+        results: [data, ...prevGalleryComments.results]
+      }))
       setGalleryPost((prevGalleryPost) => ({
         results: [
           {
             ...prevGalleryPost.results[0],
-            gallery_comments_count: prevGalleryPost.results[0].gallery_comments_count + 1,
-          },
-        ],
-      }));
-      setContent("");
+            gallery_comments_count: prevGalleryPost.results[0].gallery_comments_count + 1
+          }
+        ]
+      }))
+      setContent('')
     } catch (err) {
       // console.log(err);
     }
-  };
+  }
 
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
@@ -66,7 +66,7 @@ function GalleryCommentCreateForm(props) {
         post
       </button>
     </Form>
-  );
+  )
 }
 
-export default GalleryCommentCreateForm;
+export default GalleryCommentCreateForm

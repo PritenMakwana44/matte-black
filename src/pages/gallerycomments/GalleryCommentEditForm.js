@@ -1,25 +1,25 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
-import Form from "react-bootstrap/Form";
-import { axiosRes } from "../../api/axiosDefaults";
+import Form from 'react-bootstrap/Form'
+import { axiosRes } from '../../api/axiosDefaults'
 
-import styles from "../../styles/GalleryCommentCreateEditForm.module.css";
+import styles from '../../styles/GalleryCommentCreateEditForm.module.css'
 
-function GalleryCommentEditForm(props) {
-  const { id, content, setShowEditForm, setGalleryComments } = props;
+function GalleryCommentEditForm (props) {
+  const { id, content, setShowEditForm, setGalleryComments } = props
 
-  const [formContent, setFormContent] = useState(content);
+  const [formContent, setFormContent] = useState(content)
 
   const handleChange = (event) => {
-    setFormContent(event.target.value);
-  };
+    setFormContent(event.target.value)
+  }
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
     try {
       await axiosRes.put(`/gallerycomments/${id}/`, {
-        content: formContent.trim(),
-      });
+        content: formContent.trim()
+      })
       setGalleryComments((prevGalleryComments) => ({
         ...prevGalleryComments,
         results: prevGalleryComments.results.map((gallerycomment) => {
@@ -27,16 +27,16 @@ function GalleryCommentEditForm(props) {
             ? {
                 ...gallerycomment,
                 content: formContent.trim(),
-                updated_at: "now",
+                updated_at: 'now'
               }
-            : gallerycomment;
-        }),
-      }));
-      setShowEditForm(false);
+            : gallerycomment
+        })
+      }))
+      setShowEditForm(false)
     } catch (err) {
       // console.log(err);
     }
-  };
+  }
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -66,7 +66,7 @@ function GalleryCommentEditForm(props) {
         </button>
       </div>
     </Form>
-  );
+  )
 }
 
-export default GalleryCommentEditForm;
+export default GalleryCommentEditForm

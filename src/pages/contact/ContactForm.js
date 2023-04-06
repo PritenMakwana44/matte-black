@@ -1,9 +1,9 @@
-import React, {useState} from "react";
-import { useHistory } from "react-router-dom";
-import styles from "../../styles/ContactConfirmation.module.css";
-import btnStyles from "../../styles/Button.module.css";
-import appStyles from "../../App.module.css";
-import { useRedirect } from "../../hooks/useRedirect";
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import styles from '../../styles/ContactConfirmation.module.css'
+import btnStyles from '../../styles/Button.module.css'
+import appStyles from '../../App.module.css'
+import { useRedirect } from '../../hooks/useRedirect'
 
 import {
   Form,
@@ -12,43 +12,42 @@ import {
   Row,
   Container,
   Alert
-} from "react-bootstrap";
-import { axiosReq } from "../../api/axiosDefaults";
-
+} from 'react-bootstrap'
+import { axiosReq } from '../../api/axiosDefaults'
 
 const ContactForm = () => {
-  useRedirect("loggedOut");
+  useRedirect('loggedOut')
   const [contactData, setContactData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    content: "",
-  });
+    firstname: '',
+    lastname: '',
+    email: '',
+    content: ''
+  })
 
-  const { firstname, lastname, email, content } = contactData;
-  const [errors, setErrors] = useState({});
-  const history = useHistory();
+  const { firstname, lastname, email, content } = contactData
+  const [errors, setErrors] = useState({})
+  const history = useHistory()
 
   const handleChange = (event) => {
     setContactData({
       ...contactData,
-      [event.target.name]: event.target.value,
-    });
-  };
+      [event.target.name]: event.target.value
+    })
+  }
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
     try {
-      await axiosReq.post("/contact/", contactData);
-      history.push("/confirmation");
+      await axiosReq.post('/contact/', contactData)
+      history.push('/confirmation')
     } catch (err) {
-      setErrors(err.response?.data);
+      setErrors(err.response?.data)
     }
-  };
+  }
 
-  return (    
+  return (
     <Row className={styles.Row}>
-      
+
       <Col>
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>Contact Us</h1>
@@ -129,7 +128,7 @@ const ContactForm = () => {
         </Container>
       </Col>
     </Row>
-  );
-};
+  )
+}
 
-export default ContactForm;
+export default ContactForm

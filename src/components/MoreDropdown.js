@@ -1,7 +1,7 @@
-import React from "react";
-import Dropdown from "react-bootstrap/Dropdown";
-import styles from "../styles/MoreDropdown.module.css";
-import { useHistory } from "react-router";
+import React from 'react'
+import Dropdown from 'react-bootstrap/Dropdown'
+import styles from '../styles/MoreDropdown.module.css'
+import { useHistory } from 'react-router'
 
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
@@ -10,11 +10,11 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
     className="fas fa-ellipsis-v"
     ref={ref}
     onClick={(e) => {
-      e.preventDefault();
-      onClick(e);
+      e.preventDefault()
+      onClick(e)
     }}
   />
-));
+))
 
 export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   return (
@@ -23,7 +23,7 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
 
       <Dropdown.Menu
         className="text-center"
-        popperConfig={{ strategy: "fixed" }}
+        popperConfig={{ strategy: 'fixed' }}
       >
         <Dropdown.Item
           className={styles.DropdownItem}
@@ -41,11 +41,11 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
-  );
-};
+  )
+}
 
 export const ProfileEditDropdown = ({ id }) => {
-  const history = useHistory();
+  const history = useHistory()
   return (
     <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">
       <Dropdown.Toggle as={ThreeDots} />
@@ -72,5 +72,5 @@ export const ProfileEditDropdown = ({ id }) => {
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
-  );
-};
+  )
+}
