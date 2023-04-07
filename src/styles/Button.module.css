@@ -10,30 +10,29 @@
     background-color: #28282B;
     color: grey;
     text-transform: capitalize;
-
   }
 
-  .Button:hover {
-    opacity: 0.8;
-    border-color: transparent;
-    cursor: pointer;
-    background-color: orange;
-  }
+.Button:hover {
+  opacity: 0.8;
+  border-color: transparent;
+  cursor: pointer;
+  background-color: orange;
+}
   
-  .Button:hover:active {
-    background-color: #28282B !important;
-  }
+.Button:hover:active {
+  background-color: #28282B !important;
+}
   
-  .Button:active {
-    background-color: #28282B !important;
-  }
+.Button:active {
+  background-color: #28282B !important;
+}
   
-  .Button:focus {
-    background-color: #28282B
-  }
-  
-  .Wide {
-    padding: 10px 50px;
-    width: 100%;
-  }
+.Button:focus {
+  background-color: #28282B
+}
+
+.Wide {
+  padding: 10px 50px;
+  width: 100%;
+}
   

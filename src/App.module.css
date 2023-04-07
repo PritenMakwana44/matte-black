@@ -79,3 +79,10 @@ figure {
 *::-webkit-scrollbar-thumb:hover {
   background: grey;
 }
+
+body {
+  margin: 0;
+  font-family: 'Fjalla One', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

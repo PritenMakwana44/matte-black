@@ -1,10 +1,8 @@
 import React from 'react'
 import styles from '../../styles/GalleryPost.module.css'
 import { useCurrentUser } from '../../contexts/CurrentUserContext'
-
 import Card from 'react-bootstrap/Card'
 import Media from 'react-bootstrap/Media'
-
 import { Link, useHistory } from 'react-router-dom'
 import Avatar from '../../components/Avatar'
 import { axiosRes } from '../../api/axiosDefaults'
