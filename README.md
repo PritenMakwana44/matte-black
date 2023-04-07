@@ -21,25 +21,27 @@
     + [No Results Pages](#no-results-pages)
     + [Mobile Template](#mobile-template)
 + [Existing Features](#existing-features)
-    + [Navbar](#navbar)
-    + [Review detail](#review-detail)
-    + [Sign In](#sign-in)
-    + [Sign Up](#sign-up)
-    + [Sign Out](#sign-out)
-    + [Log in Alert](#log-in-alert)
-    + [User Nav](#user-nav)
-    + [Review List](#review-list)
-    + [Add Review](#add-review)
-    + [Watch Later List](#watch-later-list)
-    + [Review detail admin or user own](#review-detail-admin-or-user-own)
-    + [Upvote or Downvote](#upvote-or-downvote)
-    + [Comments](#comments)
-    + [Comments as an admin](#comments-as-an-admin)
-    + [Comment approval](#comment-approval)
-    + [Footer](#footer)
-    + [Back to top](#back-to-top)
-    + [Login as admim](#login-as-admin)
-    + [Admin center](#admin-center)
+    + [Navbar Features](#navbar=features)
+    + [Sign Up Features](#sign-up-features)
+    + [Sign In Features](#sign-in-features)
+    + [Sign Out Features](#sign-out-features)
+    + [Post Features](#post-features)
+    + [Add/Edit/Delete Post Features](#add-edit-delete-post-features)
+    + [Profile Page Features](#profile-page-features)
+    + [Edit My Profile Features](#edit-my-profile-features)
+    + [Comment Features](#comment-features)
+    + [Contact Us Features](#contact-us-features)
+    + [Icon Features](#icon-features)
+    + [Button Features](#button-features)
+    + [Follow/Unfollow Features](#follow-unfollow-features)
+    + [Button Features](#button-features)
+    + [Loading Features](#loading-features)
+    + [Not Found Features](#not-found-features)
+    + [Search Features](#search-features)
+    + [Placeholder Features](#placeholder-features)
+    + [Mobile Features](#mobile-features)
+    + [Favicon Features](#favicon-features)
+
 + [Future Features](#future-features)
 
 [Technologies Used](#technologies-used)
@@ -173,124 +175,184 @@ This is my Wireframe for mobile resposiveness. This is merley a template of what
 
 ![Profile Pages](src/assets/readme/wireframes/Mobile%20Signed%20In%20home%20page_feed_posts_gallery_saved.png)
 
-  
-  
-    
- 
-
-
 
 ## Existing Features
 
+### Navbar Features
+For anyone who comes into the site this is the default navbar throughout the website. More icons appear in the Navbar when the user is logged in. As the third picture shows it is fully responsive on mobile.
+### Related User Stories:
+- As a user I am attracted to the look of the site and it’s easy to navigate
+- As a user I can use the Navbar on any page for a smooth experience
 
-### Navbar
-For anyone who comes into the site this is the default navbar. The navbar includes a sign in and sign out function.
-![navbar](readme/images/features/review-home-signup-signin.png)
-
-
-### Review detail
-Here is the view when you click on a post when your not logged in.
-![review-detail-1](readme/images/features/review-detail-1.png)
-![review-detail-2](readme/images/features/review-detail-2.png)
-
-
-### Sign In
-Here is the sign in page.
-![signin](readme/images/features/signin.png)
+![navbar1](src/assets/readme/features/Navbar1.png)
+![navbar2](src/assets/readme/features/Navbar2.png)
+![navbar3](src/assets/readme/features/navbar_responsive.png)
 
 
-### Sign Up
-Here is the sign up page.
-![signup](readme/images/features/signup.png)
+### Sign Up Features
+If a user clicks sign up this is the form it brings the user to so they can get access to more features by becoming a member.
+### Related User Stories:
+- As a user I can sign up so that I can have access to member features
+
+![signup](src/assets/readme/features/signup.png)
+
+### Sign In Features
+If a user clicks sign in this is the form it brings the user to so they can get access to more features by signing in.
+### Related User Stories:
+- As a user I can sign in so that I can have access to member features
+
+![signin](src/assets/readme/features/signin.png)
+
+### Sign Out Features
+On the navbar there is a signout icon which allows the logged in user to sign out at any time.
+### Related User Stories:
+- As a user If I am signed in I can also sign out
+
+![signout](src/assets/readme/features/signout.png)
+
+### Post Features
+There are a few diffrent places where posts can be seen. There is the home page which shows posts, there is the feed which only shows posts for followed users, there is gallery posts, there are also a saved posts section and there are posts on each users profile page. All feeds have infinite scroll. Only posts on the home page can be seen by users who aren't logged in.
+### Related User Stories:
+- As a user I can see posts of followed users in my feed
+- As a user I can view posts and gallery posts
+
+![posts](src/assets/readme/features/posts.png)
+![galleryposts](src/assets/readme/features/galleryposts.png)
+![feedscroll](src/assets/readme/features/feedscroll.png)
+
+### Add/Edit/Delete Post Features
+Signed in users can add posts or gallery posts via the navbar on the top left which leads to a form.
+If a signed in user clicks on a post they have created they will see right dots on the right of the post.
+They can then either edit or delete the post. Hence the posts are CRUD verified.
+### Related User Stories:
+- As a user I can create posts/gallery posts
+- As a user I can view posts and gallery posts
+- As a user I can edit my own posts/gallery posts
+- As a user I can delete my own posts/gallery posts
+
+![Add posts](src/assets/readme/features/addposts.png)
+![edit posts](src/assets/readme/features/editposts.png)
+
+### Profile Page Features
+Each user has a profile page if they are signed up. You will also have your own profile page for your own account. This shows your posts only.It also shows how many posts, followers and following you have.
+### Related User Stories:
+- As a user I can view other user profiles
+
+![My Profile Page](src/assets/readme/features/myprofilepage.png)
+
+### Edit Profile Page Features
+Each user has a profile page if they are signed up. There is functionality to be able to change your username, password and edit your profile.
+By editing your profile you can create a tech bio on your profile and change your profile image.
+### Related User Stories:
+- As a user I can customise my profile
+
+![Edit my profile page](src/assets/readme/features/editmyprofile.png)
+
+### Comment Features
+All users can see all comments on every post. All logged in users can comment on any post including their own.
+A user can create,read,update and delete their own comments.
+
+### Related User Stories:
+- As a user I can create comments on both posts and gallery posts
+- As a user I can edit my own comments on both posts and gallery posts
+- As a user I can delete my own comments on both posts and gallery posts
+
+![comments](src/assets/readme/features/comments.png)
+![comments menu1](src/assets/readme/features/comments_menu1.png)
+![comments menu2](src/assets/readme/features/comments_menu2.png)
+![Edit comment](src/assets/readme/features/editcomment.png)
+
+### Contact Us Features
+If your a logged in user, you will also have access to the contact us page. The form is working however it doesn't actually send an email to Matte Black yet. So that will be in the future features to fix.
+
+### Related User Stories:
+- As a user I can have access to the contact us form to contact Matte black hosts
+
+![contactus1](src/assets/readme/features/contactus1.png)
+![contactus2](src/assets/readme/features/contactus2.png)
+
+### Icon Features
+Various icons are used for a pleasing looking site. Such as the navbar icons with a hover feature for text. Also the comment and saves icon which is also great! If a user clicks the saves button the number increases and the post shows in their saved section. If it's clicked again then it moves it back out and unsaves the post. 
+The comments is similar as shown previously in this section.
+
+### Related User Stories:
+- As a user I am attracted to the look of the site and it’s easy to navigate
+- As a user I can save posts which I can view in my saved section
+- As a user I can unsave posts which removes a post in my saved section
+
+![icon hover](src/assets/readme/features/icon_hover.png)
+![icon saves and comments](src/assets/readme/features/icon_saves_comments.png)
+
+### Button Features
+The button's are black and as you hover over them they turn orange. If you click them they will interact back. For example if you click the follow button it turns back to black and has a blue outline then the text changes to unfollow. 
+
+### Related User Stories:
+- As a user I am attracted to the look of the site and it’s easy to navigate
+
+![button example 1](src/assets/readme/features/buttonexample1.png)
+![button example 2](src/assets/readme/features/buttonexample2.png)
+
+### Follow/Unfollow Features
+The follow and unfollow features work by if you follow a user then in your feed you will see their posts, when they post. If you reach a high volume of followers you might then make to the bar on the right which appears in most pages which is the most followed profiles section. 
+
+### Related User Stories:
+- As a user I can be followed/unfollowed and I can follow/unfollow other users
+- As a user I can see who are the most followed users
+
+![follow/unfollow](src/assets/readme/features/follow_unfollow.png)
+![most followed](src/assets/readme/features/mostfollowed.png)
+
+### Loading Features
+The loading animation is used on every page. This allows the user to actively see the page is doing something in the background to load for them. It's a nice feature to make the pages seem a lot smoother to navigate.
+
+### Related User Stories:
+- As a user I am attracted to the look of the site and it’s easy to navigate
+
+![loading](src/assets/readme/features/loading.png)
+
+### Not found Features
+The not found feature is great feedback for the user to know the site isn't broken, but there just wasn't anything to show. This can either be in the saved section if you haven't saved anything, or even on other user profiles if they haven't posted anything. May also occur if you try search for a post which doesn't exist by the keyword.
+
+### Related User Stories:
+- As a user I am attracted to the look of the site and it’s easy to navigate
+
+![notfound](src/assets/readme/features/notfound.png)
+
+### Search Features
+The Search feature is shown on most pages. This allows the user to type in a word and see if they can find the post they are looking for rather then scrolling for a long time to find the post. 
+
+### Related User Stories:
+- As a user I am attracted to the look of the site and it’s easy to navigate
+- As a user I can search posts with a specific criteria
+
+![search](src/assets/readme/features/search.png)
+
+### Placeholder Features
+The placeholder image is a nice touch which makes sure even if a user doesn't have an image to upload they can still post. Just makes it a bit more visually appealing. The placeholder is used for post images and for profile images.
+
+### Related User Stories:
+- As a user I am attracted to the look of the site and it’s easy to navigate
+
+![placeholder images](src/assets/readme/features/placeholder_images.png)
+
+### Mobile Features
+The Mobile responsiveness makes my site usable on any device from desktop, to tablet to mobile.
+
+### Related User Stories:
+- As a user I am attracted to the look of the site and it’s easy to navigate
+
+![mobile responsiveness](src/assets/readme/features/mobile_responsive.png)
+
+### Favicon Features
+The favicon is just a nice touch to make the website my very own! Every detail matters.
+
+### Related User Stories:
+- As a user I am attracted to the look of the site and it’s easy to navigate
+
+![favicon](src/assets/readme/features/favicon-features.png)
 
 
-### Sign Out
-Here is the sign out page.
-![signout](readme/images/features/signout.png)
 
-
-### Log in Alert.
-Here is what the alert looks like when you log in. 
-![login-alert](readme/images/features/logged-in-alert.png)
-
-
-### User Nav
-Here is what the Nav bar looks like when your logged in.
-![user-login](readme/images/features/user-nav.png)
-
-
-### Review List
-Here is the list of reviews on the home page under the navbar.
-![review-list](readme/images/features/review-list.png)
-
-
-### Add Review
-Here is what it looks like for a logged in user to add a review. Only logged in users can do this. This is a form for Users to fill out. 
-![Add-review-1](readme/images/features/add-review-1.png)
-![Add-review-2](readme/images/features/add-review-2.png)
-
-
-### Watch Later List
-Each review has a add to watch list button for a logged in user. This adds the review to the watch later list. There is a remove from watch later button each review. It removes the review from the watch later list. Users also are able to open the review by clicking the post too. 
-![watch-list-1](readme/images/features/watch-list-1.png)
-![watch-list-2](readme/images/features/watch-list-2.png)
-
-
-### Review detail admin or user own
-If an admin logs in they get the option in the review post itself to edit or delete a review. If a user is logged in then they can edit or delete their own post only.
-![review-detail-admin-user-1](readme/images/features/review-detail-admin-or-user-own-1.png)
-![review-detail-admin-user-2](readme/images/features/review-detail-admin-or-user-own-2.png)
-
-
-### Upvote or Downvote
-If a user is logged in then they can either upvote or downvote. They can't do both.
-
-![upvote/downvote](readme/images/features/upvote-downvote-icons.png)
-
-
-### Comments
-Here is what the comments section looks like for any logged in user. If you comment on a post as a user it then gets sent to the admin for authorisation.
-![comment-section](readme/images/features/comments-section.png)
-![comments-auth](readme/images/features/comment-auth-alert.png)
-
-
-### Comments as an admin
-Here is what the comments section looks like as an admin. The extra feature is that admin can delete any comment from any user as feature to make sure all comments are appropriate.
-![admin-comment](readme/images/features/admin-comment.png)
-
-
-### Comment approval
-Here is where the admin can approve comments. This is in the admin panel.
-![admin-panel-comments](readme/images/features/admin-center-comments.png)
-
-
-### Footer
-The footer has been kept basic just my trademark as for who created the site.
-![footer](readme/images/features/footer.png)
-
-### Back to Top
-Here is my back to top button which is displayed on all pages
-![back to top](readme/images/features/back-to-top.png)
-
-
-### Login as admin
-If an admin is logged in. They get access to a diffrent nav bar with access to the admin panel.
-![review-admin-login](readme/images/features/review-login-admin.png)
-
-
-### Admin center
-Here is where the admin can make any changes they would like within the admin panel.
-![admin-panel](readme/images/features/admin-center-menu.png)
-
-### Favicon
-Here is the Favicon used:
-Image used:
-
-![favicon-image](static/favicon.ico)
-
-Favicon live:
-
-![favicon-image](readme/images/features/favicon-live.png)
 
 ## Future Features
     1. 404 error pages
