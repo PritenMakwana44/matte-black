@@ -7,20 +7,19 @@
 [UX](#ux)
 + [User Stories and Agile](#user-stories-and-agile)
 + [Agile](#agile)
-+ [CRUD Functionality](#crud-functionality)
 + [Colors](#colors)
 + [Fonts](#fonts)
 + [Structure](#structure)
-+ [Datebase](#database)
 + [Wireframes](#wireframes)
-    + [Main Page](#main-page)
+    + [Home Page](#home-page)
     + [Sign-Up Page](#sign-up-page)
     + [Sign-In Page](#sign-in-page)
-    + [User logged-in Home Page](#user-logged-in-home-page)
-    + [Admin logged-in Home Page](#admin-logged-in-home-page)
-    + [User or Admin watchList page](#user-or-admin-watchlist-page)
-    + [User Review detail user or non user Page](#user-review-detail-user-or-non-user-page)
-    + [User Review detail own post or admin Page](#user-review-detail-own-post-or-admin-page)
+    + [User Logged-in Posts](#user-logged-in-posts)
+    + [Add Posts](#add-posts)
+    + [Profile Pages](#profile-pages)
+    + [Contact Us](#contact-us)
+    + [No Results Pages](#no-results-pages)
+    + [Mobile Template](#mobile-template)
 + [Existing Features](#existing-features)
     + [Navbar](#navbar)
     + [Review detail](#review-detail)
@@ -69,7 +68,7 @@
 
 # Matte Black
 
-[![home page](src/assets/readme/responsive.png)](https://matte-black.herokuapp.com/)
+[![Matte Black](src/assets/readme/responsive.png)](https://matte-black.herokuapp.com/)
 
 Live Site: [Click Here](https://matte-black.herokuapp.com/)
 Github Frontend: [Click Here](https://github.com/PritenMakwana44/matte-black)
@@ -79,6 +78,8 @@ Github Backend: [Click Here](https://github.com/PritenMakwana44/mb-api)
 The purpose of this website was to give tech lovers a place to share posts about their tech and aesthetic looking pictures of their tech setups.
 Along with this the agenda was to build a community where like minded tech enthusiats can come togther to discuss and share their favourite tech.
 
+The application was built on HTML, CSS, Javascript, React.js, Bootstrap and Django REST Framework.
+
 ## UX
 
 ### User Stories and Agile
@@ -86,35 +87,22 @@ Along with this the agenda was to build a community where like minded tech enthu
 Notion was used to manage User stories and bugs.
 I decided to structure my user stories slightly diffrent as it worked best for me in the following way. I constructed project goals and mapped a single user story per project goal. I also decided to use Notion as I felt it would allow me to have a better level of flexability.
 
+I split it into the following sections: Planning, In progress,cancelled, done, future features and bugs.
+
+I was able to successfully manage my project using Agile without any issues.
+
+Can find my Notion Project management here: [Cick Here](https://time-periodical-439.notion.site/2c93fe949a724558bce2a02392ce1c2e?v=fa2256167a4943d1b93b84758142e771).
+
 [![user stories](src/assets/readme/userstories.png)](https://time-periodical-439.notion.site/2c93fe949a724558bce2a02392ce1c2e?v=fa2256167a4943d1b93b84758142e771)
 
-
-
-Github issues was used to create the User stories. 
-Can find my Github issues here: [Cick Here](https://github.com/users/PritenMakwana44/projects/4/views/1).
-The sections are split into Todo, Inprogress, End user function done, Admin function done and future.
-
-### CRUD Functionality
-
-Users:
-Create - Users can create accounts, reviews, watchlist entries, comments
-Read - Users can read reviews, watchlist entires, comments
-Update - Users can update reviews, watchlist entries
-Delete - Users can delete reviews, watchlist entries
-
-Admins:
-Create - Admins can create accounts, reviews, watchlist entries, comments
-Read - Admins can read accounts, reviews, watchlist entries, comments
-Update - Admins can update accounts, reviews, watchlist entries, comments
-Delete -  Admins can delete accounts, reviews, watchlist entries, comments
-
 ### Colors
-Background colors: White, #F9FAFC
-Main colors: Default Orange
-Secondary colors: Default Grey
+- Matte Black: #28282B
+- Default Grey : Grey
+- Default: Orange
 
 ### Fonts
-Main font: Fredoka One
+- Main Font: Noto Sans TC 
+- Secondary Font: sans-serif
 
 ### Structure
 
@@ -122,61 +110,73 @@ The goal of the site structure is to be basic, clean and simple. The structure s
 
 Site Structure:
 
-    1. Home page which includes list of reviews
+    1. Home page which includes list of posts
     2. Sign up page
     3. Sign in page
-    4. Sign out page
-    5. Watchlist page
-    6. Add review page (form)
-    7. edit review page (form)
-    8. Review detail page
-
-My site used a MVC framework on the backend to put the site front end structure togther via a model, view and controller.
-
-### Database
-
-Below is my Database model which was designed before putting togther this project. Ideally this would be the schema which would work most ideally. In reality this model didn't work as expected but it provided space for growth. In the future this schema will provide to be useful to make the database as clean as possible. The backend uses Django and ElephantSQL. 
-My Review model and comment model had similaries to previous projects at Code Institute but I always made sure they were custom to my sites needs. My watchlater model was completey custom and provided much expansion for future updates. 
-
-![models](readme/images/models.jpeg)
-
+    4. Add post or gallery post form pages
+    5. Feed page to only show posts for users your following only
+    6. Gallery post page
+    7. Saved posts page
+    8. Gallery post/post page(when you click on a post or gallery post)
+    9. Contact page
+    10. Profile page
+    Nav bar is shown on all pages.
 
 
 ## Wireframes 
 
-I used Balsamiq to create my wireframes. I based my designs on a desktop site first then made them responsive after built.
+I used Balsamiq to create my wireframes. I based my designs on a desktop site first then made them responsive after built. I did create just 1 mobile template to base the responsiveness.
 
-### Main Page
-The main page is my home page for the review site.
-![Mainpage](readme/images/wireframe/Mainpagelayout.png)
 
-### Sign-Up Page: 
-This is the page for users to sign up.
-![Signup](readme/images/wireframe/Signup.png)
+### Home Page
+This is my Wireframe for my home page when not signed in.
 
-### Sign-In Page:
-This is the page for users to sign in.
-![Signip](readme/images/wireframe/Signin.png)
+![Home Page](src/assets/readme/wireframes/Home%20Page.png)
 
-### User logged-in Home Page:
-Once the user logs in the nav bar changes. Here is the view.
-![Userloginhome](readme/images/wireframe/UserloginHome.png)
+### Sign-Up Page
+This is my Wireframe for my Sign-up page.
 
-### Admin logged-in Home Page:
-Once the admin logs in the nav bar changes. Here is the view.
-![Adminloginhome](readme/images/wireframe/AdminloginHome.png)
+![Sign-Up Page](src/assets/readme/wireframes/Sign%20up.png)
 
-### User or Admin watchList page:
-This is the view for the WatchList.
-![User-or-admin-watchlist](readme/images/wireframe/User-admin-WatchList.png)
+### Sign-In Page
+This is my Wireframe for my Sign-in page.
 
-### User Review detail user or non user Page:
-When the user or non logged in user clicks on a post this is the detail page.
-![User-Review-detail-user-or-non-user](readme/images/wireframe/User-Review-detail-user-or-non-user.png)
+![Sign-In Page](src/assets/readme/wireframes/Sign%20In.png)
 
-### User Review detail own post or admin Page
-This is what the page would look like when admin or user is logged in.
-![User-Review-detail-own-post-or-admin-Page](readme/images/wireframe/user-review-detail-own-post-or-admin.png)
+### User Logged-in Posts
+This is my Wireframe template for all post streams such as galleryposts, posts, saved and feed for a logged in user.
+
+![User Logged-in Posts](src/assets/readme/wireframes/Signed%20In%20home%20page_feed_posts_gallery_saved.png)
+
+### Add Posts
+This is my Wireframe for my add posts and gallery posts.
+
+![Sign-In Page](src/assets/readme/wireframes/Add%20post_gallery%20post.png)
+
+### Profile Pages
+This is my Wireframe for profiles which include my own profile and other users profiles.
+
+![Profile Pages](src/assets/readme/wireframes/Profile.png)
+
+### Contact Us
+This is my Wireframe for my contact us form.
+
+![Profile Pages](src/assets/readme/wireframes/Contact%20Us.png)
+
+### No Results Pages
+This is my Wireframe for my no results pages.
+
+![Profile Pages](src/assets/readme/wireframes/No%20results.png)
+
+### Mobile Template
+This is my Wireframe for mobile resposiveness. This is merley a template of what the navbar, and most followed profiles look in mobile form.
+
+![Profile Pages](src/assets/readme/wireframes/Mobile%20Signed%20In%20home%20page_feed_posts_gallery_saved.png)
+
+  
+  
+    
+ 
 
 
 
