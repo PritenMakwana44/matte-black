@@ -110,7 +110,7 @@ const Post = (props) => {
             ? (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't save your own post!</Tooltip>}
+              overlay={<Tooltip>You can&apos;t save your own post!</Tooltip>}
             >
               <i className="far fa-heart" />
             </OverlayTrigger>

@@ -40,7 +40,10 @@ const GalleryComment = (props) => {
         ...prevGalleryComments,
         results: prevGalleryComments.results.filter((gallerycomment) => gallerycomment.id !== id)
       }))
-    } catch (err) {}
+    /*eslint no-empty: "error"*/
+    } catch (err) {
+      // empty
+    }
   }
 
   return (

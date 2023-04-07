@@ -5,6 +5,7 @@ import { useHistory } from 'react-router'
 
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
+// eslint-disable-next-line react/display-name
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
     className="fas fa-ellipsis-v"

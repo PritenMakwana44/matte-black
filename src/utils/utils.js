@@ -13,7 +13,10 @@ export const fetchMoreData = async (resource, setResource) => {
           : [...acc, cur]
       }, prevResource.results)
     }))
-  } catch (err) {}
+    /*eslint no-empty: "error"*/
+  } catch (err) {
+    // empty
+  }
 }
 
 export const followHelper = (profile, clickedProfile, following_id) => {

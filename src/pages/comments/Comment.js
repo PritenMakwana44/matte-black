@@ -41,7 +41,10 @@ const Comment = (props) => {
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id)
       }))
-    } catch (err) {}
+    /*eslint no-empty: "error"*/
+    } catch (err) {
+       // empty
+    }
   }
 
   return (

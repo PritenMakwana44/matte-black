@@ -64,12 +64,12 @@ function GalleryPostPage () {
             ? (
             <InfiniteScroll
               children={gallerycomments.results.map((gallerycomment) => (
-                <GalleryComment
-                  key={gallerycomment.id}
-                  {...gallerycomment}
-                  setPost={setGalleryPost}
-                  setGalleryComments={setGalleryComments}
-                />
+              <GalleryComment
+                key={gallerycomment.id}
+                {...gallerycomment}
+                setPost={setGalleryPost}
+                setGalleryComments={setGalleryComments}
+              />
               ))}
               dataLength={gallerycomments.results.length}
               loader={<Asset spinner />}
