@@ -3,11 +3,9 @@
 [Matte Black](#matte-black)
 
 [Project Goals](#project-goals)
-+ [User Goals](#user-goals)
-+ [Site Owner Goals](#site-owner-goals)
 
 [UX](#ux)
-+ [User Stories](#user-stories)
++ [User Stories and Agile](#user-stories-and-agile)
 + [Agile](#agile)
 + [CRUD Functionality](#crud-functionality)
 + [Colors](#colors)
@@ -77,85 +75,20 @@ Live Site: [Click Here](https://matte-black.herokuapp.com/)
 Github Frontend: [Click Here](https://github.com/PritenMakwana44/matte-black)
 Github Backend: [Click Here](https://github.com/PritenMakwana44/mb-api)
 
-
+# Project Goals
 The purpose of this website was to give tech lovers a place to share posts about their tech and aesthetic looking pictures of their tech setups.
 Along with this the agenda was to build a community where like minded tech enthusiats can come togther to discuss and share their favourite tech.
 
-# Project Goals
-
-## User Goals
-
-- To be able to create an account
-- To be able to add Anime reviews
-- To be able to comment on all reviews
-- To be able to add reviews to watch later list
-- To be able to read others reviews
-- To be able to upvote or downvote reviews
-
-## Site Owner Goals
-
-- To provide a platform in which users can share anime reviews
-- To provide a platform which allows growth of an anime community
-- To provide a platform where users can have a list of anime they can remmeber to watch later.
-
-
 ## UX
 
-#### User stories
+### User Stories and Agile
 
-Github was used to manage User stories and bugs.
+Notion was used to manage User stories and bugs.
+I decided to structure my user stories slightly diffrent as it worked best for me in the following way. I constructed project goals and mapped a single user story per project goal. I also decided to use Notion as I felt it would allow me to have a better level of flexability.
 
-1. USER STORY: View Review list
-    - Review List is on home page for users to see all Reviews.
-    - If you click a review in the review list it opens up the review.
-
-2. USER STORY: Create Review
-    - There is a Create review button for any user to create Anime reviews.
-    - User must have account created to create a review.
-    - Once review is created it's shown on the Review list.
-3. USER STORY: Delete Review
-    - User can delete their own Reviews using a button.
-    - Button does not show unless user is creator of the review.
-4. USER STORY: Edit Review
-    - User can edit their own Reviews using a button.
-    - Button does not show unless user is creator of the review.
-5. USER STORY: Upvote/downvote review
-    - User can upvote or downvote any post
-    - Upvotes and downvotes numbers are shown in Review list. 
-    - One can not upvote and downvote the same post.
-6. USER STORY: Account Registration
-    - User must register an account.
-    - User gets access to many diffrent functions once registered such as adding reviews,comments and reviews to their review list.
-    - A user can login or logout as they please.
-    - A user can create as many accounts as they want.
-7. USER STORY: Comment On Review
-    - Users can Comment on any Review including their own.
-    - Function is used to create a feel of community. 
-8. USER STORY: View Comments
-    - Users can view anyones comments on any post.
-9. USER STORY: View upvote/downvotes
-    - Users can see number of Upvotes and downvotes on each review.
-10. USER STORY: Site pagitnation
-    - If user reaches 10 reviews on a page, they will then have pagitnation acitive which then gives them a next page button.
-11. USER STORY: Add review to watch later
-    - If user is logged in they can add any review to their Watch later list via a button.
-12. USER STORY: Watch later section view
-    - If user is logged in they get an extra tab on their Navigation bar called Watch later.
-    - The watch later button leads them to see all Anime reviews on another page.
-13. USER STORY: Manage Reviews
-    - If User is an admin then they can manage reviews via admin panel or certain features on webiste.
-    - They can delete or edit any review via public site or admin panel.
-14. USER STORY: Manage comments
-    - If User is an admin then they can manage comments via admin panel or limited features on website.
-    - They can delete any comment via either admin panel or site. 
-    - Future functionality will allow them to approve or disapprove any comment as all comments require authorisation.
-15. User Story: 404 error
-    - Future feature will have a 404 error website which allows them to navigate to the real site.
-
-### Agile
+[![user stories](src/assets/readme/userstories.png)](https://time-periodical-439.notion.site/2c93fe949a724558bce2a02392ce1c2e?v=fa2256167a4943d1b93b84758142e771)
 
 
-![UserStories](readme/images/Userstories.png)
 
 Github issues was used to create the User stories. 
 Can find my Github issues here: [Cick Here](https://github.com/users/PritenMakwana44/projects/4/views/1).
