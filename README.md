@@ -41,7 +41,6 @@
     + [Placeholder Features](#placeholder-features)
     + [Mobile Features](#mobile-features)
     + [Favicon Features](#favicon-features)
-
 + [Future Features](#future-features)
 
 [Technologies Used](#technologies-used)
@@ -355,22 +354,18 @@ The favicon is just a nice touch to make the website my very own! Every detail m
 
 
 ## Future Features
-    1. 404 error pages
-    2. Allow admin to approve comments via the Review site itself.
-    3. Be able to add friends and direct message.
-    4. Better account management i.e email address and profile picture.
-    5. Crunchy roll Anime streaming site integration.
-    6. Social Media integration
-    7. Anime merchandise shop section
-    8. Anime social media platform - Stories/shorts
+    1. Be able to save/unsave gallery posts in conjunction with saved section.
+    2. Have the contact us function working.
+    3. When following users currently only posts show in the feed, extended functionality to add gallery post.
+    4. On the profile page only posts show. Again extending functionality for gallery posts. 
 
 # Technologies Used
 ### Technologies and Programs Used:
 + GitHub
     + Used for version control
-    + Used for issue management
-    + Used for Agile manage tool
     + Hosted platform for website
++ Notion
+    + Project management Agile tool
 + Heroku 
     + App deployment
 + ElephantSQL
@@ -389,19 +384,17 @@ The favicon is just a nice touch to make the website my very own! Every detail m
     + HTML5
     + CSS3
     + Javascript
+    + React.js
     + Python
-    + Django
+    + Django Rest Framework
 + Gitpod - IDE
 + Google - Research platform.
-+ Add-ons:
-    + Crispy Forms
-    + Psycopg2 
-    + Summernote
-    + AllAuth
++ LucidChart - Create diagram
++ Favicon.io - Create favicon
+
+    
 
 # Testing
-
-Both Automatic ans Manual testing was done throughout this project. I felt doing Unit testing wouldn't be appropriate due to the simple project in place. Due to the lack of complexity I felt my time would be better placed elsewhere. Hence I used my Python Pep8 inbuilt add-on to ensure that my code would is valid. I then used external validators for my other code as will be shown later. I also used manual testing by continously checking what my site looks like on diffrent browsers and devices and making sure all functions work as expected.
 
 ## Functionality and Compatibility Testing
 For functionality testing I tested my website in all diffrent sizes in chrome, firefox and safari.
@@ -409,30 +402,55 @@ My project looked great on all browsers and were responsive on mobile, tablet an
 Much testing was done using an Iphone 13 pro, iPad pro and Macbook Pro 13". This ensured I knew what impact my changes were continously making. 
 
 ## Code Validator Testing
-HTML:
+
+## HTML:
 
 
-I used the following Html validator to validate my project. It was validated via: https://validator.w3.org/
-![html-val](readme/images/testing/html-val.png)
+I used the following Html validator to validate my project. I validated all template pages such as home, posts, profiles,contact and signup forms. 
+It was validated via: https://validator.w3.org/
+![html-home](src/assets/readme/testing/validation/html/Html_val_home.png)
+![html-posts](src/assets/readme/testing/validation/html/Html_val_posts.png)
+![html-profile](src/assets/readme/testing/validation/html/Html_val_profile.png)
+![html-createposts](src/assets/readme/testing/validation/html/Html_val_createposts.png)
+![html-contact](src/assets/readme/testing/validation/html/Html_val_contact.png)
+![html-signup](src/assets/readme/testing/validation/html/Html_val_signup.png)
 
 
-CSS:
+
+## CSS:
 
 
-I used the following CSS validator to validate my project. It was validated via: https://jigsaw.w3.org/css-validator/
-![css-val](readme/images/testing/css-val.png)
+I used the following css validator to validate my project. I validated all template pages such as home, posts, profiles,contact and signup forms.  
 
-Jshint:
+It was validated via: https://jigsaw.w3.org/css-validator/
+
+![css-home](src/assets/readme/testing/validation/css/css_val_home.png)
+![css-posts](src/assets/readme/testing/validation/css/css_val_posts.png)
+![css-profile](src/assets/readme/testing/validation/css/css_val_profiles.png)
+![css-createposts](src/assets/readme/testing/validation/css/css_val_createposts.png)
+![css-contact](src/assets/readme/testing/validation/css/css_val_contact.png)
+![css-signup](src/assets/readme/testing/validation/css/css_val_signup.png)
 
 
-I used the following JS validator to validate my project.Although I got an error with the semicolon, there was no valid reason why a semicolon was needed hence I belive this to be a bug. It was validated via: https://jshint.com/
-![jshint-val](readme/images/testing/jshint-val.png)
+## ESLINT:
 
-Python:
+There were 5 errors in eslint which were unable to be validated by ESLINT: The error was: "PASS CHILDREN AS PROPS. INSTEAD, NEST CHILDREN BETWEEN THE OPENING AND CLOSING TAGS"
+This error was also shown in the Walkthrough project Moments. After much research there was no fix. I belive the issue doesn't effect the way in whicht he project works and presents no real issue apart from react best practice. Hence I added ignore rules for the lines showing the errors:
+
+The pages effected are: 
+ProfilePage.js
+PostsPage.js
+Postpage.js
+GalleryPostsPage.js
+GalleryPostPage.js
+
+These are ignored and the following line is added to each of these pages so the error isn't presented. 
+/*eslint-disable*/
+
+Here is an example of the error presented:
+![eslint-error](src/assets/readme/testing/eslint_error.png)
 
 
-Within Gitpod I used the Code Institute template to create my project. Within this template there is a PEP8 validator. All errors were fixed for each and every file. Firstly the template constructed by Code Institute have add-ons which checks that the code remains at a pep8 standard. Hence no errors are in my code apart from 3 add-on issues. The errors are known and do not effect code in anyway so can be ignored.
-![pep8-val](readme/images/testing/pep8-val.png)
 
 ## SEO Testing
 Below are screenshots taken from the chrome dev tools lighthouse function to evaluate SEO of the website which includes all HTML sites.
