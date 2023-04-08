@@ -358,6 +358,7 @@ The favicon is just a nice touch to make the website my very own! Every detail m
     2. Have the contact us function working.
     3. When following users currently only posts show in the feed, extended functionality to add gallery post.
     4. On the profile page only posts show. Again extending functionality for gallery posts. 
+    5. Speed up site performance.
 
 # Technologies Used
 ### Technologies and Programs Used:
@@ -453,33 +454,66 @@ Here is an example of the error presented:
 
 
 ## SEO Testing
-Below are screenshots taken from the chrome dev tools lighthouse function to evaluate SEO of the website which includes all HTML sites.
+Below are screenshots taken from the chrome dev tools lighthouse function to evaluate SEO of the website. Looks like all looks fine apart from performance which I was unable to fix. However it will be added to future features to speed up site.
+I used the following templates to text every part fo the site.
+
+## Desktop
+
+SEO Desktop Home testing result:
+
+![seo-desktop-home](src/assets/readme/testing/validation/seo/desktop/seo-desktop-home.png)
+
+SEO Desktop Posts testing result:
+
+![seo-desktop-posts](src/assets/readme/testing/validation/seo/desktop/seo-desktop-posts.png)
+
+SEO Desktop Create Posts testing result:
+
+![seo-desktop-createposts](src/assets/readme/testing/validation/seo/desktop/seo-desktop-createposts.png)
+
+SEO Desktop Profiles testing result:
+
+![seo-desktop-profiles](src/assets/readme/testing/validation/seo/desktop/seo-desktop-profiles.png)
+
+SEO Desktop Signup testing result:
+
+![seo-desktop-signup](src/assets/readme/testing/validation/seo/desktop/seo-desktop-signup.png)
+
+SEO Desktop Contact testing result:
+
+![seo-desktop-contact](src/assets/readme/testing/validation/seo/desktop/seo-desktop-contact.png)
+
+## Mobile
+
+SEO Mobile Home testing result:
+
+![seo-mobile-home](src/assets/readme/testing/validation/seo/mobile/seo-mobile-home.png)
+
+SEO Mobile Posts testing result:
+
+![seo-mobile-posts](src/assets/readme/testing/validation/seo/mobile/seo-mobile-posts.png)
+
+SEO Mobile Create Posts testing result:
+
+![seo-mobile-createposts](src/assets/readme/testing/validation/seo/mobile/seo-mobile-createposts.png)
+
+SEO Mobile Profiles testing result:
+
+![seo-mobile-profiles](src/assets/readme/testing/validation/seo/mobile/seo-mobile-profiles.png)
+
+SEO Mobile Signup testing result:
+
+![seo-mobile-signup](src/assets/readme/testing/validation/seo/mobile/seo-mobile-signup.png)
+
+SEO Mobile Contact testing result:
+
+![seo-mobile-contact](src/assets/readme/testing/validation/seo/mobile/seo-mobile-contact.png)
 
 
-SEO Home Desktop testing result:
 
-![seo-home-desktop](readme/images/testing/seo-home-desktop.png)
 
-SEO Home Desktop testing result:
-![seo-home-mobile](readme/images/testing/seo-home-mobile.png)
 
-SEO Review Detail Desktop testing result:
-![seo-reviewdetail-desktop](readme/images/testing/seo-reviewdetail-desktop.png)
 
-SEO Review Detail mobile testing result:
-![seo-reviewdetail-mobile](readme/images/testing/seo-reviewdetail-mobile.png)
-
-SEO add review desktop testing result:
-![seo-addreview-desktop](readme/images/testing/seo-addreview-desktop.png)
-
-SEO add review mobile testing result:
-![seo-addreview-mobile](readme/images/testing/seo-addreview-mobile.png)
-
-SEO watchlist desktop testing result:
-![seo-watchlist-desktop](readme/images/testing/seo-watchlist-desktop.png)
-
-SEO watchlist mobile testing result:
-![seo-watchlist-mobile](readme/images/testing/seo-watchlist-mobile.png)
 
 ## Manual testing
 
