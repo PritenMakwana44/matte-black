@@ -608,14 +608,169 @@ There is a bug when you delete a gallery post it directs the site to the add gal
 
 ![user-gallerypostdeletebug](src/assets/readme/testing/manual/user_gallerypostdeletebug.png)
 
+## As a user I can create comments on both posts and gallery posts
+## As user I can view all comments
+## As a user I can edit my own comments on both posts and gallery posts
+## As a user I can delete my own comments on both posts and gallery posts
 
 
+Conclusion - As shown below you can create, read, edit and delete comments on posts and gallery posts.
+
+## Commenting on Posts
 
 
+![user-postviewcomments](src/assets/readme/testing/manual/user_postviewcomments.png)
+![user-postaddcomment](src/assets/readme/testing/manual/user_postaddcomment.png)
+![user-postaddedcomment](src/assets/readme/testing/manual/user_postaddedcomment.png)
+![user-postcommentmenu](src/assets/readme/testing/manual/user_postcommentmenu.png)
+![user-posteditcomment](src/assets/readme/testing/manual/user_posteditcomment.png)
+![user-postvieweditedcomment](src/assets/readme/testing/manual/user_postvieweditedcomment.png)
+![user-postdeletecomment](src/assets/readme/testing/manual/user_postdeletecomment.png)
+![user-postdeletedcomment](src/assets/readme/testing/manual/user_postdeletedcommnet.png)
 
+
+## Commenting on GalleryPosts
+
+![user-gallerypostviewcomments](src/assets/readme/testing/manual/user_gallerypostviewcomments.png)
+![user-gallerypostaddcomment](src/assets/readme/testing/manual/user_gallerypostaddcomment.png)
+![user-gallerypostaddedcomment](src/assets/readme/testing/manual/user_gallerypostaddedcomment.png)
+![user-gallerypostcommentmenu](src/assets/readme/testing/manual/user_gallerypostcommentmenu.png)
+![user-galleryposteditcomment](src/assets/readme/testing/manual/user_galleryposteditcomment.png)
+![user-gallerypostvieweditedcomment](src/assets/readme/testing/manual/user_gallerypostediedtcomment.png)
+![user-gallerypostdeletecomment](src/assets/readme/testing/manual/user_gallerypostdeletecomment.png)
+
+There is an existing bug when deleting comments where it doesn't show the deletion straight away, you need to refresh the page to see the reflected deleted comment.
+
+![user-gallerypostdeletedcomment](src/assets/readme/testing/manual/user_gallerypostdeletedcomment.png)
+
+---
+
+
+## As a user I can be followed/unfollowed and I can follow/unfollow other users.
+
+Conclusion - As shown below I can indeed follow and unfollow other users.
+
+![user-follow1](src/assets/readme/testing/manual/user_follow1.png)
+
+![user-follow2](src/assets/readme/testing/manual/user_follow2.png)
+
+![user-unfollow1](src/assets/readme/testing/manual/user_unfollow1.png)
+
+![user-follow2](src/assets/readme/testing/manual/user_unfollow2.png)
 
 
 ---
+
+## As a user I can save posts which I can view in my saved section
+## As a user I can unsave posts which removes a post in my saved section
+
+
+Conclusion - As shown below I can indeed save and unsave posts.
+
+![user-postsave1](src/assets/readme/testing/manual/user_postsave1.png)
+![user-postsave2](src/assets/readme/testing/manual/user_postsave2.png)
+![user-postsave3](src/assets/readme/testing/manual/user_postsave3.png)
+![user-postunsave1](src/assets/readme/testing/manual/user_postunsave1.png)
+![user-postunsave2](src/assets/readme/testing/manual/user_postunsave2.png)
+
+
+---
+
+## As a user I can see posts of followed users in my feed
+
+
+Conclusion - As shown below followed user posts are indeed shown in my feed once I click follow on a user.
+
+![user-postfeed1](src/assets/readme/testing/manual/user_postfeed1.png)
+
+![user-postfeed2](src/assets/readme/testing/manual/user_postfeed2.png)
+
+![user-postfeed3](src/assets/readme/testing/manual/user_postfeed3.png)
+
+
+---
+
+## As a user I can view other user profiles
+
+
+Conclusion - As shown below I can visit other user profiles with no issues.
+
+![user-viewotherprofiles1](src/assets/readme/testing/manual/user_viewotherprofiles1.png)
+
+![user-viewotherprofiles2](src/assets/readme/testing/manual/user_viewotherprofiles2.png)
+
+---
+
+
+## As a user I can use the Navbar on any page for a smooth experience
+
+
+Conclusion - As shown below a navbar is shown on all pages.
+
+![user-navbar1](src/assets/readme/testing/manual/user_navbar1.png)
+
+![user-navbar2](src/assets/readme/testing/manual/user_navbar2.png)
+
+![user-navbar3](src/assets/readme/testing/manual/user_navbar3.png)
+
+![user-navbar4](src/assets/readme/testing/manual/user_navbar4.png)
+
+![user-navbar5](src/assets/readme/testing/manual/user_navbar5.png)
+
+![user-navbar6](src/assets/readme/testing/manual/user_navbar6.png)
+
+
+---
+
+## As a user I can have access to the contact us form to contact Matte black hosts
+
+
+Conclusion - Form is accessible and works apart from the fact that it doesn't actually send a email. The purpose of this was to be a placeholder for a future feature.
+
+![user-contact1](src/assets/readme/testing/manual/user_contact1.png)
+
+![user-contact2](src/assets/readme/testing/manual/user_contact2.png)
+
+![user-contact3](src/assets/readme/testing/manual/user_contact3.png)
+
+
+---
+
+## As a user I can see who are the most followed users
+
+Conclusion - As shown below the most followed profiles section shows on pages.
+
+![user-mostfollowed](src/assets/readme/testing/manual/user_mostfollowed.png)
+
+---
+
+## As a user I can search posts with a specific criteria
+
+Conclusion - As shown below I can search text from posts to only show filtered posts.
+
+![user-searchfunction](src/assets/readme/testing/manual/user_searchfunction.png)
+
+---
+
+## As a user I am attracted to the look of the site and it’s easy to navigate
+
+Conclusion - The navbar is easy to use, the pages are clean and look appealing. The colour scheme is warm and inviting.
+
+![user-pleasinglayout1](src/assets/readme/testing/manual/user_pleasinglayout1.png)
+
+![user-pleasinglayout2](src/assets/readme/testing/manual/user_pleasinglayout2.png)
+
+![user-pleasinglayout3](src/assets/readme/testing/manual/user_pleasinglayout3.png)
+
+![user-pleasinglayout4](src/assets/readme/testing/manual/user_pleasinglayout4.png)
+
+---
+
+
+
+
+
+
 
 
 
@@ -630,44 +785,7 @@ There is a bug when you delete a gallery post it directs the site to the add gal
 # Bugs
 ## Fixed Bugs
 
-1. Issue: paragraph tags showing around description on Review list.
-
-![tag-bug](readme/images/bugs/tag-bug.png)
-    
-Fix: change line from {{ review.description }} to {{ review.description | safe }}
-
-![tag-bug-fixed](readme/images/bugs/tag-bug-fixed.png)
-
-2. Issue: When leaving a comment user get's no alert to say the comment has been sent for authorisation.
-    
-Fix: Add alert code to the views.py for comments.
-Before:
-
-![comment-alert-bug-code](readme/images/bugs/comment-alert-code.png)
-
-After:
-
-![comment-alert-big-code-fixed](readme/images/bugs/comment-alert-code-fixed.png)
-
-
-![comment-alert-fixed-bug](readme/images/bugs/comment-alert-fixed.png)
-
-3. Delete Review button spacing bug
-
-![delete-review-spacing-bug](readme/images/bugs/delete-review-spacing.png)
-    
-Fix: Add break after delete review button
-Code before:
-
-![delete-review](readme/images/bugs/delete-review-spacing-code.png)
-
-Code after: 
-
-![delete-review](readme/images/bugs/delete-review-spacing-code-fixed.png)
-
-Outcome:
-
-![delete-review](readme/images/bugs/delete-review-spacing-fixed.png)
+1. 
 
 
 ## Unfixed Bugs
