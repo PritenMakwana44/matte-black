@@ -805,7 +805,6 @@ Heroku:
 8. Open app and see if it works. 
 
 
-
 # References
 1. Fonts used were from Google Fonts: [Google Fonts](https://fonts.google.com/)
 2. Icons were taken from Font Awesone: [Font Awesome](https://fontawesome.com/)
@@ -820,6 +819,11 @@ Heroku:
 11. Logo was built on Canva [Canva](https://www.canva.com/)
 12. More React Documentation: [React documentation](https://react.dev/)
 13. Matte black color: [Matte Black color](https://htmlcolorcodes.com/colors/matte-black/)
+14. Template used for front end: [Moments](https://github.com/Code-Institute-Solutions/moments)
+15. Template used for back end: [drf-api](https://github.com/Code-Institute-Solutions/drf-api)
+16. I used the CI template to create my actual repo in github: [CI Github template](https://github.com/Code-Institute-Org/gitpod-full-template)
+17. Django rest framework documentation: [Django rest framework docs](https://www.django-rest-framework.org/)
+18. Images were taken from: [Pixelbay](https://www.django-rest-framework.org/)
 
 
 
@@ -827,4 +831,5 @@ Heroku:
 1. Much help was taken from Tutors at Code Institute.
 2. Much help and inspirtation was taken from Code Insitute course materials.
 3. Much help was taken from Code Institute Slack channels.
-4. The moments walkthrough project was used as a template for thsi project. 
+4. The moments walkthrough project was used as a template for thsi project.
+5. Many students past, present and future helped with this project. 
