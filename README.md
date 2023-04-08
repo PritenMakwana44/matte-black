@@ -94,6 +94,8 @@ I was able to successfully manage my project using Agile without any issues.
 
 Can find my Notion Project management here: [Cick Here](https://time-periodical-439.notion.site/2c93fe949a724558bce2a02392ce1c2e?v=fa2256167a4943d1b93b84758142e771).
 
+***ADDED*** : After looking at the requirements towards the end of the project I also added my Agile project management to Github projects. However I personally used Notion to manage my project: [GitHub Projects](https://github.com/users/PritenMakwana44/projects/5)
+
 [![user stories](src/assets/readme/userstories.png)](https://time-periodical-439.notion.site/2c93fe949a724558bce2a02392ce1c2e?v=fa2256167a4943d1b93b84758142e771)
 
 ### Colors
