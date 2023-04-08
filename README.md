@@ -510,122 +510,122 @@ SEO Mobile Contact testing result:
 ![seo-mobile-contact](src/assets/readme/testing/validation/seo/mobile/seo-mobile-contact.png)
 
 
-
-
-
-
-
 ## Manual testing
 
 Below are the user stories and the manual testing outcomes for each:
-I did manual testing throughout my project according to my user stories to make sure all requirements were met. These were tracked via Github to make sure all was processed correctly. 
+I did manual testing throughout my project according to my user stories to make sure all requirements were met. These were tracked via notion to make sure all was processed correctly. 
+
+## As a user I can see posts even if I don't have an account
+
+Conclusion - As seen below posts are shown on the home page when not signed in.
+
+![user-account-noaccount](src/assets/readme/testing/manual/user_account_noaccount.png)
+
+---
+
+## As a user I can sign up so that I can have access to member features
+## As a user I can sign in so that I can have access to member features
+
+Conclusion - As seen below I could sign up and sign in successfully.
+
+![user-signup](src/assets/readme/testing/manual/user_signup.png)
+![user-signin](src/assets/readme/testing/manual/user_signin.png)
+![user-signedin](src/assets/readme/testing/manual/user_signedin.png)
+
+---
+
+## As a user If I am signed in I can also sign out.
+
+Conclusion - As seen below I could sign out successfully.
+
+![user-signout](src/assets/readme/testing/manual/user_signout.png)
+![user-signout-success](src/assets/readme/testing/manual/user_signout_success.png)
+
+---
+
+## As a user I can customise my profile.
+
+Conclusion - As shown below you can add a tech bio and profile picture to customise profile.
+
+![user-editprofile1](src/assets/readme/testing/manual/user_editprofile1.png)
+![user-editprofile2](src/assets/readme/testing/manual/user_editprofile2.png)
+![user-editprofile3](src/assets/readme/testing/manual/user_editprofile3.png)
+![user-editprofile4](src/assets/readme/testing/manual/user_editprofile4.png)
+
+---
+
+## As a user I can view posts and gallery posts
+## As a user I can create posts/gallery posts
+## As a user I can edit my own posts/gallery posts
+## As a user I can delete my own posts/gallery posts
+
+Conclusion - As shown below you can Create, read, edit and delete posts or gallery posts.
+
+## Posts
+
+Add post:
+
+![user-addpost](src/assets/readme/testing/manual/user_addpost.png)
+![user-addpostform](src/assets/readme/testing/manual/user_addpostform.png)
+
+View post:
+
+![user-viewpost](src/assets/readme/testing/manual/user_viewpost.png)
+
+Edit post: 
+
+![user-postmenu](src/assets/readme/testing/manual/user_postmenu.png)
+![user-editpostform](src/assets/readme/testing/manual/user_editpostform.png)
+![user-editedpost](src/assets/readme/testing/manual/user_editedpost.png)
+
+Delete post: 
+
+![user-deletepost](src/assets/readme/testing/manual/user_deletepost.png)
+![user-deletedpost](src/assets/readme/testing/manual/user_deletedpost.png)
+
+## Gallery Posts
+
+Add Gallerypost:
+
+![user-addgallerypost](src/assets/readme/testing/manual/user_addgallerypost.png)
+![user-addgallerypostform](src/assets/readme/testing/manual/user_addgallerypostform.png)
+
+View Gallerypost:
+
+![user-viewgallerypost](src/assets/readme/testing/manual/user_viewgallerypost.png)
+
+Edit Gallerypost:
+
+![user-gallerypostmenu](src/assets/readme/testing/manual/user_gallerypostmenu.png)
+![user-editgallerypostform](src/assets/readme/testing/manual/user_editgallerypostform.png)
+![user-viewgallerypostedited](src/assets/readme/testing/manual/user_viewgallerypostedited.png)
+
+Delete Gallerypost:
+
+![user-gallerypostdelete](src/assets/readme/testing/manual/user_gallerypostdelete.png)
+
+There is a bug when you delete a gallery post it directs the site to the add gallery post form. But the gallery post does delete fine.
+
+![user-gallerypostdeletebug](src/assets/readme/testing/manual/user_gallerypostdeletebug.png)
 
 
-1. USER STORY: View Review list:
 
-    Action: Browse Home page.
-    Expected Result: See list of Reviews.
-    Actual Result: See list of Reviews.
-    Same result in all browsers: Yes
 
-2. USER STORY: Create Review
 
-    Action: Click Add review button and fill out the create review form.
-    Expected Result: Successfully create a new review.
-    Actual Result: Successfully create a new review.
-    Same result in all browsers: Yes
 
-3. USER STORY: Delete Review
-    
-    Action: Click on review and click delete button.
-    Expected Result: See delete button on own posts, then click delete to remove your own review. Can't see delete button on others posts.
-    Actual Result: Can see the delete button and was able to delete own review only. Can't see delete button on others posts.
-    Same result in all browsers: Yes
 
-4. USER STORY: Edit Review
-   
-    Action: Click on review and click edit button.
-    Expected Result: See edit button on own posts, then click edit to edit your own review. Can't see edit button on others posts.
-    Actual Result: Can see the edit button and was able to edit own review only. Can't see edit button on others posts.
-    Same result in all browsers: Yes
 
-5. USER STORY: Upvote/downvote review
-    
-    Action: Click thumbs up icon to upvote and click thumbs down icon to downvote.
-    Expected Result: Icon changes colour and number according to which you have picked.
-    Actual Result: Icon changes colour and number according to which you have picked.
-    Same result in all browsers: Yes
+---
 
-6. USER STORY: Account Registration
-    
-    Action: Click Sign up button then enter username and password to sign up.
-    Expected Result: Be able to sign up successfully, indicatd by Navbar changing so it shows log out and add review as an option.
-    Actual Result: Was able to sign up successfully, indicatd by Navbar changing so it shows log out and add review as an option.
-    Same result in all browsers: Yes
 
-7. USER STORY: Comment On Review
-    
-    Action: Click on review then leave a comment via the text field and submit button. 
-    Expected Result: See your own comment on the review.
-    Actual Result: See your own comment on the review.
-    Same result in all browsers: Yes
 
-8. USER STORY: View Comments
-    
-    Action: Click on a post then scroll to the bottom. 
-    Expected Result: See comments
-    Actual Result: Can see comments.
-    Same result in all browsers: Yes
 
-9. USER STORY: View upvote/downvotes
-   
-    Action: Click into post and scroll down to upvote/downvote section.
-    Expected Result: See number indicator for upvote/downvotes.
-    Actual Result: Can see number indicator for upvote/downvotes.
-    Same result in all browsers: Yes
 
-10. USER STORY: Site pagitnation
-    
-    Action: Add more then 10 reviews and click next and bottom of page to move to next page.
-    Expected Result: Able to switch to next page after 10 reviews.
-    Actual Result: Able to switch to next page after 10 reviews.
-    Same result in all browsers: Yes
 
-11. USER STORY: Add review to watch later
-   
-    Action: Click the add review button
-    Expected Result: If not logged in, redirected to the sign in page. If logged in adds the review to your watch later list.
-    Actual Result: If not logged in, redirected to the sign in page. If logged in adds the review to your watch later list.
-    Same result in all browsers: Yes
 
-12. USER STORY: Watch later section view
-   
-    Action: Log in, click watch later in nav bar. 
-    Expected Result: See reviews added to watch later page. 
-    Actual Result: Can see watch later list
-    Same result in all browsers: Yes
 
-13. USER STORY: Manage Reviews
-    
-    Action: Login as admin user. Click on posts to edit/delete any review or go to admin panel to do this via the link in nav bar.
-    Expected Result: Successfully be able to edit/delete review via website or via admin panel.
-    Actual Result: Successfully able to edit/delete review via website or via admin panel.
-    Same result in all browsers: Yes
 
-14. USER STORY: Manage comments
 
-    
-    Action: Login as admin user. Click on posts to edit/delete any comment or go to admin panel to do this via the link in nav bar. Approve comments for other users.
-    Expected Result: Successfully be able to delete comments via website or via admin panel. Approve comments or edit comments via admin panel.
-    Actual Result: Successfully be able to delete comments via website or via admin panel. Approve comments or edit comments via admin panel.
-    Same result in all browsers: Yes
-
-15. User Story: 404 error
-    
-    Action: Change the url to have an incorrect path
-    Expected Result: Get a 404 error page which allows you to get to to correct site.
-    Actual Result: No 404 error page instead I get a default page which has no links to go to correct site.
-    Same result in all browsers: Yes
 
 # Bugs
 ## Fixed Bugs
